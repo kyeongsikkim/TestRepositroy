@@ -1,0 +1,148 @@
+
+git 
+분산버전관리시스템
+CVS -중앙저장소
+SVN -중앙저장소
+Git -로컬저장소<->중앙저장소 (동기화작업)
+
+-github설치
+https://github.com/
+sign in
+sign up
+
+repository 생성 
+
+-git설치
+https://git-scm.com/
+
+gui설치 -GitHubDesktop
+
+
+add -기존repository가져옴
+create
+clone -이미 중앙저장소가 만들어져있을때 똑같은 repository를 만들겠다. 
+
+<git bash here>
+명령프롬프트에서 git 명령어 
+$git --help  //명령어 보고싶을때 
+$clear
+$git clone -h //clone 뒤에 명령어 뭐쓸지 모를때 
+$git clone https://github.com/Jangyukyung/TestRepository  //복제할때 
+
+
+복제된 testrepository 내부 변경 사항
+
+변경사항 반영하기전에 
+commit - local저장소에 
+간단하게 설명쓰고- commit to master
+
+점- 로컬과 서버에 같은 내용
+동그라미 - 아직 로컬에 반영하지 않은 내용 
+
+
+파일만들고 확인하고 sync하기
+
+
+$git status
+$git add .   //gui환경에서는 commit 하면 add도 같이 하는셈....
+$git add README.md   // 이 파일만 add함
+$ git commit -m "Test3 추가"   //내용반영
+$git show   //가장 최근 commit 한 내용 나옴 
+$git show -2  //이전에 commit한 내용 
+
+$git log //커밋 목록 볼수 있음
+$ git show 890ebb341feb98d1b2e3e29dc4c8f78697816f82 //해당 순번만 확인
+
+$git push //서버에 올리기 sync
+
+atom에서 Test4 <br/> 추가하고 
+명령프롬프트에서 git show하면 빨갛게 나오면 
+add해야됨  
+$git add .
+하고
+$git status
+하면 commit가능한 상태로 나옴
+$ git commit -m "Test4 추가"
+$ git show   //어떤내용추가되었나 확인하고
+$git push  //서버로 반영!!
+$git push 
+
+
+
+$git pull  //다른사람이 작성한 내용 가져옴
+
+		
+상대방이 수정한 내용 받고 싶을때도 sync
+ 
+
+
+Sync failed - 로컬 저장소에 변경내용이 있고 아직 커밋되지 않았을 경우
+(user2가 복제하고 수정한뒤 push하고,
+user1이 수정하고 pull한경우 )
+내꺼버림   git stash  ,git pull   (명령프롬프트에서만 됨 . gui에서안됨)
+로컬 지우고 다시 클론 
+
+user 1에서 에러
+git bash 열고 git status로 상황 확인 - git push
+git stash
+git pull 
+
+
+서로 수정하고 commit하고 push했을때  -Sync conflicts -충돌~.~
+왜충돌났는지......  pull 해봐 
+그러면 merge 됨 (수정된내용 합쳐짐)
+그리고 commit하고 push
+
+==================================================
+
+이클립스,넷빈즈 프로젝트 git에 올림
+
+
+넷빈즈에서
+-commit - Team->Commit
+-history -Tead->show history
+
+
+.gitignore -로컬에서 생성되는 파일들이 저장되는 곳이기때문에 올릴필요가 없어서
+
+
+
+hw 
+1. JavaFX 임베디드 Display 화면 
+홈 제어 패널 (최대한 예쁘게^6^)
+2. 주제 팀당 3개씩
+
+
+================================================
+<<<<웹>>>>>
+
+웹서버
+www.apache.org
+
+tomcat
+
+tomcat 8.0
+-8.0.43  32-bit/64-bit Windows Service Installer (pgp, md5, sha1) 다운로드
+
+관리자 로그인 name(tomcat),password(iot12345) 설정
+ 
+
+http://localhost:8080/    -웹서버 default홈페이지 
+
+아파치 아이콘 - configure - startup type - 시작할때 자동으로 켜지는지 설정 
+
+톰캣-외부에서 톰캣실행하지말고 IDE에서 실행하도록....................
+
+
+
+(NetBeans)에서
+java Web->new web application
+server - Apache Tomcat or Tomee
+아이디(tomcat) 패스워드(iot12345)
+Spring web MVC 
+finish
+
+Configuration Files-web.xml
+<url-pattern>/</url-pattern>  로수정
+
+dispatcher-servlet  수정
