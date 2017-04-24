@@ -41,8 +41,6 @@ commit - local저장소에
 
 
 파일만들고 확인하고 sync하기
-ㅇㅇㅇ
-dd
 
 $git status
 $git add .   //gui환경에서는 commit 하면 add도 같이 하는셈....
