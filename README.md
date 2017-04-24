@@ -1,7 +1,2 @@
 # TestRepositroy
-Test1
-Test2
-Test3
-Test5
-Test4
-Test6
+테스트를 위한 중앙 저장송
