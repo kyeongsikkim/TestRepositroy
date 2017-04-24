@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="220.0" prefWidth="530.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch17.exam25.RootController">
+   <children>
+      <StackPane layoutY="14.0" prefHeight="200.0" prefWidth="360.0">
+         <children>
+            <ImageView fitHeight="200.0" fitWidth="360.0" pickOnBounds="true">
+               <image>
+                  <Image url="@media/audio.png" />
+               </image>
+            </ImageView>
+            <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="360.0" preserveRatio="false" />
+            <Slider fx:id="sliderPlay" prefHeight="14.0" prefWidth="322.0" StackPane.alignment="BOTTOM_CENTER" />
+         </children>
+      </StackPane>
+      <Button fx:id="btnPlay" disable="true" layoutX="383.0" layoutY="14.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="86.0" text="재생" />
+      <Button fx:id="btnPause" disable="true" layoutX="383.0" layoutY="43.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="86.0" text="일시중지" />
+      <Button fx:id="btnStop" disable="true" layoutX="383.0" layoutY="72.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="86.0" text="중지" />
+      <Label layoutX="368.0" layoutY="192.0" text="Label" />
+      <Slider fx:id="sliderVolume" layoutX="411.0" layoutY="195.0" showTickMarks="true" />
+      <ProgressBar fx:id="progressBar" layoutX="368.0" layoutY="129.0" prefHeight="18.0" prefWidth="149.0" progress="0.0" />
+      <ProgressIndicator fx:id="progressIndicator" layoutX="527.0" layoutY="128.0" progress="0.0" />
+      <Label layoutX="384.0" layoutY="107.0" text="시간" />
+      <Label fx:id="labelTime" alignment="CENTER" contentDisplay="TOP" layoutX="369.0" layoutY="158.0" prefHeight="15.0" prefWidth="149.0" text="10/60 sec" textAlignment="CENTER" />
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</AnchorPane>

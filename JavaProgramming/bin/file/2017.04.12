@@ -1,0 +1,31 @@
+File-파일 시스템의 파일의 정보를 얻기 위한 클래스
+console-콘솔로부터 문자를 입출력하기 위한 클래스
+InputStream/OutputStream
+읽어들이는것 /출력시키는거
+ Reader       /writer
+ 읽어들이는것/보내는것 
+ byte 를 읽을 것이냐 문자를 읽을 것이냐 
+ 
+ 데이터를 읽으면 입력 스트림
+ 데이터 보내면 출력 스트림   //프로그램 기준으로 한다.
+ 글자가 아닌것은 다 바이트이다.
+ 문자도 결국은 바이트 모든 종류의 데이터를 주고 받게 할 수있다.바이트로 
+ 문자만 주고 받을 수 있는 스트림 특화 되어있다.
+ inputStream outputStream 바이트 스트림
+ 
+ reader writer 문자 스트림 
+ 
+ /////////////////////
+euc-kr에서 한글byte수는 2byte로 고정 영어는 1byte
+utf-8에서 한글byte수는 3byte로 고정 영어는 1byte
+  /////////////////////
+ inputStream 바이트 데이터 불러올때 
+ read 는 한바이트 읽고서 리턴한다. 4byte 로 리턴이 된다. read() 1byte 만 읽는다.
+ read(byte[]b) 한번에 10바이트 실제로 읽은 바이트 
+int offset 시작점을 적어주고 inputstream 은 read 3개 
+
+넷빈즈 
+임포트는 컨트롤 시프트 i
+알트 엔터 
+
+ 
