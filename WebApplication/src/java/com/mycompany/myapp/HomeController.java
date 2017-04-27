@@ -117,14 +117,7 @@ public class HomeController {
 	public String bootstrapExam03(){
 		return "bootstrap/exam03";
 	}
-	@RequestMapping("/bootstrap/exam04")
-	public String bootstrapExam04(){
-		return "bootstrap/exam04";
-	}
-		@RequestMapping("/bootstrap/exam05")
-	public String bootstrapExam05(){
-		return "bootstrap/exam05";
-	}
+
 
 }
 
