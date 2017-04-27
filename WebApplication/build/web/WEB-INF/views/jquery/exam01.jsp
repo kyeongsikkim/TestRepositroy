@@ -11,20 +11,19 @@
 
 		<script src="/WebApplication/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 		<script>
+			//함수만 선언되어있기 때문에 다해석하고 나서 버튼을 눌렀을 때 실행되는거기때문에 이미 이미지를 찾았기 때문에 업로드가 가능한것이다.
 			function handleBtn1(){
 			
 			var imgArray=$("img");//이미지라는 태그를 다 찾아라 jquery 객체의 리턴값이다.
 			imgArray.attr("src","/WebApplication/resources/image/photo05.jpg");//arrt 이라는 매소드는 전체 배열에서 객체를 하나씩 끄집어내서 src 속성을 뒤에 값으로 변경시켜라
 			}
 				function handleBtn2(){
-					var img1=window.document.querySelector("#img1");//단하나의 객체를 찾는다 id 값으로 찾을 수 있다 id 는 유일하게 존재하니까
-					img1.src="/WebApplication/resources/image/photo08.jpg";
+					var img1=$("#img1");//단하나의 객체를 찾는다 id 값으로 찾을 수 있다 id 는 유일하게 존재하니까
+					img1.attr("src","/WebApplication/resources/image/photo10.jpg");
 				}
 					function handleBtn3(){
-					var class1=window.document.querySelectorAll(".class1");
-					for(var i=0;i<class1.length;i++){
-					class1[i].src="/WebApplication/resources/image/photo03.jpg";
-			}
+					var class1=$(".class1");
+					class1.attr("src","/WebApplication/resources/image/photo11.jpg");//jquery 안에w3c dom 객체를 저장할 수 있는 배열이 있다.
 					}
 					
 		</script>

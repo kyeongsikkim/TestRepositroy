@@ -1,0 +1,128 @@
+WEB-INF/Views .jsp
+
+WEB-INF 안에 타고 들어가는것
+
+블록태그
+<div></div> 블록 모양을 가지고 있으면서 ui 를 주는것
+
+인라인 태그
+라인으로만 해주는 것
+
+컨텍스트
+|
+|
+|--->WEB-INF
+	|
+	|-->views
+		|->.jsp
+|
+|
+|->resources
+	|
+	|->image .png 
+ 
+	| 
+	|->css .css
+
+resources 에 접근하려면 http://localhost:8080/WebApplication/resources/images/logo.png
+resources 는 URL 로 접근이 가능하다.
+
+
+
+WEB-INF 안에 있는 것은 접근이 불가하다.
+
+jsp 는 자바 클래스로 변환되어 실행이 된다.
+외부에서 함부로 실행 시키면 안된다.jsp 는 외부에서 접근 못하도록 막는다 
+
+홈컨트롤러는 jsp 에 접근이 가능하다.
+누구나 실행 시킬수 있기때문에 보안상에 문제가 발생가능하다.
+정적파일등은 resources 에다가 놓는다.
+
+홈컨트롤에서 매핍을 해서 해준다
+
+http://localhost:8080/WebApplication/resources/images/logo.png
+
+<image src=" ">
+1.절대 경로 가독성이 훨씬 좋다.
+/webApplication/resources/images/*.png 로 방식이 절대 경로라고 한다.
+
+2.URL 기준의 상대경로 
+.. 현재위치에서 올라가라
+../resources/images/*.png
+
+적은 코드로 모든 것을 실행 시키기 위해서 
+
+링크해서 끌어다 쓰는 것이다.
+
+폴더 나 패키지
+
+jquery 1.x  인터넷 익스플로 6,7,8,ch버전 지원한다.
+jquery 2.x  인터넷 익스플로 9,ch
+jquery 3.x  인터넷 익스플로 9,ch 2버전은 안써도 디고 이전 버전쓸거면 1을 쓰고 아니면 3버전을 쓴다.
+압축된것이 공백이랑 코드가 들어가 있다.
+
+3.3.2 2라는 것은 마이너 버젼 버그 수정했다는 뜻
+
+디폴리이는 재배치 
+
+
+Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.
+
+Download Bootstrap
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+모바일에서 봐도 있는 그대로 보여줘라 
+웹킷 기반의 브라우져는 viewport 를 인식한다 디바이스 위드스로 잡아라 이런뜻 스케일은 확대레벨은 1로줘라 디폴트값
+<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+뒤에 no를 추가하면 모바일을 했을때 사용자가 축소 확대 못하게 막는다.
+
+부트스트랩은 jquery를 사용하기 때문에 jquery 를 먼저 쓴다. 
+
+3.3.7버전만 3.2.0 을 사용 할 수 있다.
+
+
+3.3.7 이전 버전은 1.버전을 사용해라 
+
+<tr>은 행과 행 구분
+<td>는 열과 열 구분
+
+bootstrap 가서 
+<table class=sucess
+
+
+
+그리드 시스템 레이아웃 만들때 사용되는것 
+
+public 
+전체 선택한다음에 replace 를 해서 교체한다.
+
+Nesting columns
+
+단축키 확인 하는 것은 KeyMap 을 확인해본다.
+plug in 으로 가서 Available plugins 에서 검색해서 다운 받는다.
+
+자바 스크립트 주석은/**/ 이다.
+
+w3school
+run bootstrap->get Started
+
+부트 스트랩 다운받고 
+jquery
+
+//////////////////////////////////////////////
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+//////////////////3개가 존재해야 된다/////////////////////////////////
+
+DB 포트 랑 tomcat 포트랑 같아서 충돌이 일어난다 
+tomcat 넷빈즈 서버 추가하기
+
+서버추가한다. 
+  로그인 안될경우 넷빈즈에 서버를 추가해보고서 서버를 실행해 본다.
