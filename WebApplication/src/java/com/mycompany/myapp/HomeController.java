@@ -94,6 +94,14 @@ public class HomeController {
 	public String jqueryExam04(){
 		return "jquery/exam04";
 	}
+	@RequestMapping("/jquery/exam04_html_fragment")
+	public String jqueryexam04_html_fragment(){
+		return "jquery/exam04_html_fragment";
+	}
+	@RequestMapping("/jquery/exam04_json")
+	public String jqueryeExam04Json(){
+		return "jquery/exam04_json";
+	}
 	
 	
 	@RequestMapping("/bootstrap/exam01")
