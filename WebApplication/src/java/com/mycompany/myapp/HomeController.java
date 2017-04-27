@@ -62,6 +62,39 @@ public class HomeController {
 	public String javascriptExam07(){
 		return "javascript/exam07";
 	}
+	@RequestMapping("/javascript/exam08")
+	public String javascriptExam08(){
+		return "javascript/exam08";
+	}
+	@RequestMapping("/javascript/exam09")
+	public String javascriptExam09(){
+		return "javascript/exam09";
+	}
+		@RequestMapping("/javascript/exam10")
+	public String javascriptExam10(){
+		return "javascript/exam10";
+	}
+	@RequestMapping("/javascript/exam11")
+	public String javascriptExam11(){
+		return "javascript/exam11";
+	}
+	@RequestMapping("/jquery/exam01")
+	public String jqueryExam01(){
+		return "jquery/exam01";
+	}
+	@RequestMapping("/jquery/exam02")
+	public String jqueryExam02(){
+		return "jquery/exam02";
+	}
+	@RequestMapping("/jquery/exam03")
+	public String jqueryExam03(){
+		return "jquery/exam03";
+	}
+	@RequestMapping("/jquery/exam04")
+	public String jqueryExam04(){
+		return "jquery/exam04";
+	}
+	
 	
 	@RequestMapping("/bootstrap/exam01")
 	public String bootstrapExam01(){
@@ -84,5 +117,6 @@ public class HomeController {
 	public String bootstrapExam05(){
 		return "bootstrap/exam05";
 	}
+
 }
 
