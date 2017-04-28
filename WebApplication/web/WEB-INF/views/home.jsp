@@ -11,7 +11,7 @@
 		WebApplication Home
 		<hr/>
 		<h4>html 태그</h4>
-		<a href="html/exam01">exam01</a>  
+		<a href="/WebApplication/html/exam01">exam01</a>  
 		<!--URL 에 대한 상대 경로이다 .앞에 /WebApplication 까지 들어가게 되면 절대 경로가 된다. 슬러시가 들어가면은 절대 경로가 된다.--> 
 		<h4>Css 태그</h4>
 		<a href="css/exam01">exam01</a> </br> 
