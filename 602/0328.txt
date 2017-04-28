@@ -1,0 +1,116 @@
+[Car]
+[CarExample]
+
+Car myCar=new Car() //객체 생성!!!
+
+필드-초기값을 주지않아도 객체가 생성되면서 필드는 자동으로 초기화 된다.-변수랑 다른점
+
+객체의 필드값을 변경
+1.객체로 접근 (myCar.필드명) 2.값을 변경한다.
+
+
+myCar
+
+yourCar
+
+
+
+설계도를 만들려면 생성자가 꼭 있어야된다? True
+생성자가 없으면- 컴파일러가 넣어줌 (기본생성자) 
+
+기본생성자:
+컴파일러가 넣어줬는지 확인하는 방법- 컴파일이 된거는 .class가 생긴다는 말이니까 .class파일을 찾아가
+window-ShowView-Navigator- Car.class 파일 
+
+
+[exam02]
+
+외부에서 값을 받을 수 있도록 매개변수를 생성
+
+
+생성자 여러개 선언하는 거 - 생성자 오버로딩
+생성자 두개라는 의미:객체를 만들수 있는 방법이 두개
+
+new Car("검정",true);
+검정이 c. true 가 a 로 저장됨
+
+객체 다 지우고 싶다- myCar=null; / yourCar=null; 
+
+
+Car(String color, boolean airback){
+		color=color;
+		airback=airback;
+	}//매개변수값을 다시 매개변수값으로 넣는다는 뜻
+
+=> 	this.color=color;
+	this.airback=airback; //this. 객체자신을 부를때 
+
+
+Car(String company,String color,boolean airback){	
+	} //생성자 오버로딩규칙-매개변수 수가 달라야함.매개변수 타입 달라야함.
+
+
+
+p.212
+코드 중복코드 제거 할때. 
+	Car(){
+		this("현대자동차",null,false);
+	}
+	
+	Car(String color, boolean airback){
+		this("현대자동차",color,airback);
+	}
+	Car(String company,String color,boolean airback){
+		this.company=company;
+		this.color=color;
+		this.airback=airback;	
+	}
+	
+p.215 메소드 선언
+[class Calculator]-설계도
+메소드
+void(리턴타입상관없을때?). 첫자 소문자로.
+메소드가 실행되고 결과값 타입 
+void 
+int 
+double 
+boolean
+
+void 말고 다른 타입은 return 이 꼭 있어야 돼 
+
+[CalculatorExample]-실행
+
+
+
+
+//import ch06.exam02.Car;  //include 와 비슷   ctrl+shift+o
+
+
+
+메소드 이름은 같은데 매개변수 타입만 바뀌는거 - 메소드 오버로딩
+
+p.198
+hw.로봇 설계도 만들어오기 
+Car 
+-Tire
+-Engine
+-Handle 
+객체가 다른 객체를 집합관계로 가지고 있는거 
+
+
+~p.235 까지 읽고, 예제연습 
+
+-------------------------------------------------------
+
+[Car]-Body,Engine,Dashboard,Seat,Tire
+
+
+부품,고유데이터  모두 필드
+p.199
+
+
+setSpeed //speed를 변경하는 메소드
+
+생성자가 하나라고 있으면 컴파일러는 기본생성자를 만들지 않아
+
+[CarExample]

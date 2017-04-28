@@ -1,0 +1,174 @@
+p.511 StringTokenizer 
+split()
+-정규표현식을 구분자로해서 부분 문자열을 분리한 후 배열에 저장하고 리턴
+
+StringTokenizer
+-텍스트 다 끝나면 예외나타남 -가져올게있는지물어봐야해(hasMoreTokens())
+st.nextToken
+st.countToken
+
+(exam10)
+
+
+
+p.514 StringBuffer
+String은 내부 문자열 수정할수 없는데 
+StringBuffer은 
+내부에 문자열ㅇ을 저장할수 있는 공간이 있음
+
+append 
+insert
+delete
+replace
+reverse
+
+(exam11)
+
+
+
+p.517 정규표현식과 Pattern클래스
+정해져있는 형식
+[]  그중에 한개 문자
+\d 한개숫자 0~9
+\s 공백 (space)
+\w 알파벳 한개 or 숫자 한개
+? 
+*
++
+{n}
+{n,}
+{n,m}
+()
+
+
+Pattern클래스 
+\\
+하나의 문자로 받아들이겠다고 하면 \추가
+
+
+
+
+p.519 Arrays
+binarySearch 
+copyOf 배열전체복사 -새로운 배열 만듬
+copyOfRange 배열일부복사
+
+System.arraycopy()써도됨  -기존의배열이 있고 항목만 바꿈
+
+
+p.522 배열항목비교 
+Arrays.equals
+Arrays.deepEquals()
+
+
+p.524
+(SortExample)
+
+Arrays.sort(members);
+System.out.println(Arrays.toString(members));
+//예외 
+
+Comparable com=new Member("홍길동");   //Comparable 은 interface 니까 구현해야함 
+-String은 Comparable을 구현하고 있어서 됨
+sort는 compareto메소드를 호출 
+
+
+compareTo
+a negative integer, zero, or a positive integer as this object is 
+less than, equal to, or greater than the specified object.
+
+
+객체를 comparable타입으로 변환하기위해서
+Member클래스에 comparable인터페이스를 구현해야돼
+
+public class Member implements Comparable <Member>{
+	compareTo 재정의
+
+public int compareTo(Member o) {
+	return name.compareTo(o.name); // String이 가지고있는 compareTo는 사전순으로 비교 
+}
+
+
+나이를기준으로 멤버객체를 정렬
+public int compareTo(Member o) {
+	return age-o.age;
+}
+
+
+
+
+
+
+
+================================================================================
+
+p.527 포장클래스
+기본타입 값을 포장하는 객체
+한번 기본값으로 객체를 만들면 바꿀수 없다
+박싱-기본값을 객체로
+언박싱-기본값을 객체에서 뽑아냄
+
+
+자동박싱
+원래
+-new integer[100];
+-new integer["100"];
+-Integer.valueOf[100];
+자동박싱하면 
+-Integer obj=100;  //기본값을 자동적으로 Integer로 만들어서 대입 
+
+p.530 변환
+String v1="100";
+byte v2=Byte.parseByte(v1); //문자열을 해당타입의 값으로 변경해줌 
+
+
+p.533 Math
+생성자없으니까 필드,메소드 모두 static-클래스만으로 접근가능
+
+abs -절대값 
+round-실수주면 반올림해서 정수로 리턴 
+
+
+
+(exam15)
+Random()
+Random(long seed)
+
+
+p.538
+calendar 는 생성자가 있지만 !!! protected - 상속해서 써야함 
+Calendar cal=Calendar.getInstance();
+Locale
+TimeZone
+
+
+p.542 
+
+
+p.543  Format클래스
+
+숫자/날짜를 원하는 형식의 문자열로
+정수 세자리마다 콤마 넣고싶을때 
+DecimalFormat 
+SimpleDateFormat 
+MessageFormat
+
+
+p.549 time패키지!!!!!!!!!!!!!!
+자바8부터추가
+날짜연산기능 추가!!
+
+
+ZonedDateTime
+사물에서 들어오는 날짜는 다 UTC 기준 
+Instant now() 현재 날짜정보를 누구한테 전달하고 싶을때 사용 
+
+
+p.553  정보얻기
+
+p.555 연산
+
+
+p.563 파싱,포맷팅
+파싱-문자열을 원하는 타입으로 바꾸는거 -자바8에서 추가
+포맷팅-어떤데이터 타입을 문자열로 바꾸는거 

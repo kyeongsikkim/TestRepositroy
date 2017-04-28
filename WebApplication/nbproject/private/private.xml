@@ -4,21 +4,26 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/web/WEB-INF/views/jquery/exam01.jsp</file>
+            <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/web/WEB-INF/views/jquery/exam04_html_fragment.jsp</file>
+            <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/src/java/com/mycompany/myapp/controller/Exam06BootstrapController.java</file>
             <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/web/WEB-INF/views/html/exam01.jsp</file>
             <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/src/java/com/mycompany/myapp/controller/Exam07JspController.java</file>
             <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/src/java/com/mycompany/myapp/controller/Exam03CssController.java</file>
             <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/web/WEB-INF/views/jsp/exam01.jsp</file>
             <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/web/WEB-INF/views/jquery/exam02.jsp</file>
             <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/web/WEB-INF/views/jsp/exam03.jsp</file>
-            <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/web/WEB-INF/views/jsp/exam02_2.jsp</file>
+            <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/web/WEB-INF/views/jsp/exam05.jsp</file>
+            <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/src/java/com/mycompany/myapp/dto/Member.java</file>
             <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/src/java/com/mycompany/myapp/controller/Exam01HomeController.java</file>
             <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/web/WEB-INF/views/home.jsp</file>
             <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/src/java/com/mycompany/myapp/controller/Exam05JQuery.java</file>
+            <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/web/WEB-INF/views/jsp/exam02_include.jsp</file>
             <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/web/WEB-INF/views/jsp/exam02.jsp</file>
             <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/src/java/com/mycompany/myapp/controller/Exam02HtmlController.java</file>
             <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/src/java/com/mycompany/myapp/controller/Exam04JavaScript.java</file>
-            <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/web/WEB-INF/views/jsp/exam02_1.jsp</file>
+            <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/web/WEB-INF/views/jsp/exam04.jsp</file>
             <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/web/WEB-INF/views/jquery/exam03.jsp</file>
+            <file>file:/D:/IoTCourse/GitRepository/TestRepositroy/WebApplication/src/java/com/mycompany/myapp/dto/Board.java</file>
         </group>
     </open-files>
 </project-private>

@@ -1,0 +1,181 @@
+p.1056 TCP네트워킹
+(ServerExample1) -서버 연결 
+
+//ServerSocket 생성
+serverSocket=new ServerSocket(); //현재 네트워크 어댑터가 사용할수 없는 상태라면 오류발생
+
+//포트와 바인딩
+serverSocket.bind(new InetSocketAddress(50001));
+
+서버와 포트가 연ㄱ결되는것:바인딩 
+
+//연결기다리기
+serverSocket.accept(); //클라이언트 연결이 들어올때까지 계속 대기상태
+
+
+http://192.168.3.29:50001    
+
+
+//클라이언트의 정보얻기
+InetSocketAddress isa=(InetSocketAddress)socket.getRemoteSocketAddress(); //클라이언트 주소 얻음
+System.out.println(isa.toString());  //클라이언트가 사용하는 포트번호 나옴 
+-클라이언트의 아이피가 중요! 
+
+System.out.println(isa.getHostName());
+-컴퓨터이름 나옴 ? 아이피주소? -같은지역네트워크니까 호스트이름나오는거임
+
+(ServerExample2) - 서버 통신 
+
+
+
+자원- 프로그램이 사용하고 있는 타입, 구성요소 
+	사용하고 반드시 운영체제에게 돌려줘야함 
+
+
+//serverSocket이 50001번을 현재 사용하고 있느냐? 
+if(serverSocket!=null && !serverSocket.isClosed()){
+//사용하고 있으면 close하함 
+
+
+clent-server
+
+
+대기상태를벗어나는경우
+클라이언트가 정상적으로 종료- 리턴-1
+클라이언트가 비정상적으로 종료- 예외
+
+
+p.1066 스레드병렬처리
+스레드풀을사용해서 스레드 수 관리
+
+p.626 
+스레들 (ExecutorService)
+스레드풀 - 작업처리에 사용되는 스레드를제한된 개수만큼 미리 생성
+
+스레드 100개라면 동시에 100개 처리 가능 
+101번째라면 스레드중 끝난곳에서 작업 실행
+
+ExecutorService인터페이스- 스레드풀의 사용설명서
+Exceutors클래스가 사용 
+
+초기스레드
+코어스레드
+
+작업큐에 작업이 들어오게되면 스레드 생성 
+
+놀고있는 스레드 제거하는 기능 가지고 있음 -newcached..
+한번 만들어진 스레드 계속 가지고 있음-newFixed..
+
+
+p.628
+3//스레드가 놀고있으면 3개만 남겨놓고 죽여라
+100// 100개이상안만들어짖ㅁ
+120L//120초동안 아무거도 안하면 제거 
+TimeUnit. //120이 초,분,시  단위 설정
+new Syn-큐어떻게 만들것인가 
+
+
+데몬스레드가아ㅣ님
+애플리케이션이종료되지않는다
+종료시키는코드실행해야한다
+
+shutdown()
+suhtdownNow()
+awiatTermination(0  -시간내에는 shutdown, 시간지나면shutdownNow()
+
+(exam27)
+
+
+
+
+
+p.1087 UDP 
+비연결지향적-연결하지않고 보냄 -빠름
+통신선로가 고정적이지 않다 -
+수신자(server) 발신자(client)
+
+발신자구현
+
+
+(exam28)
+
+
+
+
+
+
+
+=================================================================
+
+
+ch17. javaFX
+awt(Abstract Windows Toolkit)
+-운영체제가제공하는 네이티브 UI 컴포넌트를 이용
+-운영체제ㅁ다 UI다름
+
+Swing
+-운영체제가 가지고 있는 컴포넌트 안쓰고 자바가 만듬 
+-느리다
+
+JavaFX 
+-레이아웃,스타일,애플리케이션 로직 분리개발
+
+
+
+Application 상속!!
+start() 재정의!!
+main()메소드 안에 launch()실행 
+
+Stage-윈도우에서 창..
+그안에...Scene
+
+
+(exam01)
+
+
+p.855 
+매개값얻기
+getParameters()
+getRAW()
+
+
+Stage-Scene-
+하나의 스테이지는 하나의 씬만 가짐 !! 
+교체할순있지만 같이쓸순없음
+
+
+vBox 는 Parent 상속받은고야
+
+
+프로그램적 레이아웃 
+
+FXML레이아웃 -XML기반
+
+
+
+
+(exam03)
+
+
+<?xml version="1.0" encoding="UTF-8"?>  //xml 선언
+
+첫번째로 나온는 태그가 Parent 태그 
+
+
+루트태그(루트 엘리먼트)는 하나만 !!
+
+태그의 속성 (속성명,속성값)  " " 하거나 ' ' 
+
+<HBox> </HBox>
+시작태그가 있으면 반드시 끝태그가 있어야 한다 
+
+<     />  
+시작인동시에 끝이다
+
+
+
+~p.859
+~p.1067 +UDP
+
+IO/스레드/ 과제 ㅋ.....ㅋ
+네뚜억 예제 +확인문제 

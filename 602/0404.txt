@@ -1,0 +1,194 @@
+p.454 11장.기본 API클래스
+
+ApI
+oracle.com-download-java SE-document-Java SE API Documentation
+
+C:\Program Files\Java\jdk1.8.0_121\lib
+
+java.lang 은 import필요없음 (기본적으로 되어있음)
+
+java.lang-String
+public final class String //상속하지말라아아아ㅏ
+
+Deprecated-이전버전까지는 썼는데. 현재버전에서는 사용하지 않았으면 좋겠다.
+
+
+p.456  
+java.lang -가장 기본적인 클래스를 가짐
+어떤클래스든 object를 상속받는다. 모든 클래스에서 사용가능 	
+		
+P.458
+equals()
+번지비교
+
+논리적동등-객체는다르지만 데이터를 비교할때 
+
+
+(ch11.exam01)
+m1==m2  
+m1.equals(m2)    //번지비교
+
+eqauls() 재정의 
+
+
+p.461 
+해시코드-객체를 식별할 하나의 정수값 
+JVM이 자동으로 생성.
+객체가 메모리 어떤 번지에 만들어졌는지 나옴 
+
+동등비교를 할때 해스코드를 같이 만들어야됨 
+
+
+hashset  동등객체인지 아닌지 확인하는 방법
+1.객체 해시코드 같은지 다른지 비교
+2.다른경우에 바로 받음 
+2.같을경우에-equals()메소드 이용해서 비교했을대 true나오면 완전히 같은 객체로 판단
+=>기존 저장되어있는 객체 날리고 새로운거 저장  (hascode(id같으면 해시코드같게)와 equals재정의(같으면true리턴) 해야됨)
+
+
+hashSet.add(m1);
+hashSet.add(m2);
+System.out.println(hashSet.size()); //해시코드 개수
+
+
+
+hashMap
+
+키와 값으로 저장 -참조타입(번지)
+
+
+
+(exam03)
+
+toString
+@Override
+public String toString() {
+	return id;
+}
+
+
+~p.480 생략~~~~~~~
+
+p.481 
+System 
+
+System.out.println() //system이가지고있는 필드(out)를 사용 / out이 참조하는 객체의 메소드 (println)
+system.in.read()
+
+class System{
+	public static PrintStream out;
+	public static InputStream in;
+}
+system 생성자 앞에 private있어서 객체 생성하지 못한다.
+
+다 static 메소드 -객체를 못만드니까 static 
+
+exit()
+(exam04)
+for(int i=0;i<10;i++){
+	System.out.println(i);
+	if(i==5){
+		try{  //예외처리문
+			System.exit(0);  0이어도 끝까지 진행  
+		}catch(SecurityException e){}
+	}
+}
+
+
+p.482
+garbage collector 
+힙에존재하지만 어떠한 객체도 참조하고있지 않는 .쓰레기객체
+
+쓰레기객체를 주기적으로 없애줘야해-JVM이 자동으로해줌 
+메모리 정리시키고 싶으면? 
+-gc()호출 - JVM이 빨리 실행하려고함
+(exam05)
+protected void finalize() throws Throwable {}  //소멸자
+
+
+순서대로 제거되지 않고 GC가 메모리를 접근하는 순서가 다르니까 . 
+
+
+p.485
+(exam06)
+currentTimeMillis()
+nanoTime()
+
+
+getTime()
+Returns the number of milliseconds since January 1, 1970, 00:00:00 GMT represented by this Date object.
+
+
+p.486
+운영체제에서 얻을수 있는정보? 현재로그인한 사람,OS종류,자바버전,환경변수,
+
+getProperty()
+getenv()
+
+
+================================================================================
+
+
+(exam07)
+getProperty()
+System.getProperties();
+키,값 -문자열만
+
+Properties props=System.getProperties();
+	Set keys=props.keySet();
+	for(Object objKey :keys){
+		String key=(String)objKey;
+		String value=System.getProperty(key);
+		System.out.println("["+key+"]"+value);
+	}
+}
+
+운영체제별로 키 개수,문자열이 다를수 있으니까 키 전체를 
+Set으로 만들어서 - 향상된 for문
+키하나씩뽑아와서 key에 해당하는 value값을 얻어 
+
+
+GetEnv
+
+
+
+
+
+p.496 String 클래스
+(exam08)
+Hello입력시 - H.e.l.l.o 키코드값.엔터 키코드값(13,10)이 배열에 들어감. 나머지는 0
+문자열의 길이를 모르니까  
+System.in.read(inputData) 가 실제 읽은 데이터 길이를 읽어 
+new String(inputData,0,readByteNo-2); 로 엔터빼고 길이를 구해 
+키보드로부터 입력된 내용을 하나씩 읽지않고 전체를 읽는다.
+
+
+hw 복습
+
+
+(exam09)
+str.getBytes()
+문자열->바이트배열
+어떤문자셋을 썼냐에 따라서 길이가 달라짐 
+UTF-8 한글 3바이트/ 중국 4바이트
+UTF-16 다 2바이트 
+
+
+p.504
+indexOf()
+
+contatins() 써도됨 -true if this string contains s, false otherwise
+
+
+p.505
+length()
+-비밀번호설정할때
+
+replace()
+-많이활용안함..............
+-바껴진 새로운문자열이만들어짐...
+
+substring()
+
+
+hw.509 510 511 예제 

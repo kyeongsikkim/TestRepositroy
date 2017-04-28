@@ -1,0 +1,112 @@
+p. 912 미디어 컨트롤
+
+MediaView-
+slider- 재생의정도, 볼륨
+ProgressBar,ProgressIndicator
+
+MediaPlayer-재생관리/컨트롤아님/자바코드로생성해서관리하는객체
+동영상일경우= 플레이어만들고->미디어뷰만들기
+
+
+상태 
+unknown- 처음미디어플레이어를만들었을때
+ready-미디어를 재생시킬준비가 된 상태
+paused-
+playing-   
+stalled-재생을해야하는데 충분한데이터가 안온상태 
+stopped-
+endofMedia-끝~까지 재생을 한 상태 
+
+
+자동실행Runnable설정메소드
+
+현재시간속성감시-재생시간따라 프로그레스 값변경하려고 
+
+
+unknown- 미디어가 비디오인지오디오인지모르는상태
+
+
+
+stop-사용가자강제로중지
+endof-재생다끝나고
+(exam24)
+
+
+
+p.918 Slider 컨트롤
+-track과 Thumb로 구성
+-volume은 0에서1사이
+(exam25)
+
+
+p.922 차트컨트롤
+시리즈
+
+
+pieChart-
+
+(exam26)
+
+
+
+p.927  8.메뉴바와 툴바
+-MenuBar
+-ToolBar
+
+메뉴바
+메뉴
+메뉴아이템
+
+
+
+
+====================================================================
+
+(exam27)
+
+툴바추가
+<graphic>
+	<ImageView>
+		<image>
+			<Image url="@icon/new.png" />
+		</image>
+	</ImageView>
+</graphic>
+
+
+
+p.932 다이얼로그
+-모달-소유자윈도우 사용할 수 없다
+-모달리스-소유자윈도우 사용할수 있음
+
+다이얼로그는 무조건 소유자 윈도우가 있어야한다 
+
+-FileChoose
+-DirectoryChooser
+-커스텀
+
+(exam28)
+(컨트롤러)
+File file=fileChooser.showOpenDialog(AppMain.primaryStage);
+(앱메인)
+AppMain.primaryStage=primaryStage;
+
+
+p.938 컨트롤러에서 primaryStage사용
+-어떤다이얼로그든 소유자 윈도우 제공
+1. 메인클래스에ㅓㅅ전달
+
+2. 
+
+3. 
+
+
+p.934 popup
+-투명한 컨테이너를 제공하는 모달리스 다이얼로그
+-툴팁/메시지 통지/ 드롭다운박스
+-popup은 최상위 윈도우
+
+
+p.936 커스텀다이얼로그
+옵션-
+

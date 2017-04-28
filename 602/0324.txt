@@ -1,0 +1,60 @@
+1.자기분석
+2.전공지식
+3.입사지원기업
+4.입사희망기업
+5.
+
+
+
+1.알마인드 암호화숫자5자리
+2.10000보
+3.신문사설-일간지(사설)/IT/경제지  3장 
+
+
+
+
+
+
+
+NetBeans 
+
+자바로 개발할 수 있는 모든 환경이 구축되어 있음
+oracle.org
+Download-Developer tools-netbeans
+Java SE,Java ee HTml(for 디자이너)
+
+cross환경을 써야하므로 All버전 다운로드
+
+넷빈즈-자바관련기능들 단순화되어있다(ex.바로 UI개발할수 있도록 디자인 환경 제공)
+
+
+
+glssfish-오라클에서 제공하는 웹서버 ,톰캣과 동일한 기능
+
+
+
+
+
+
+
+이클립스
+file-new-javaproject-
+기본적으로 jre 1.8을 쓰겠다
+src 파일이 생긴다. 소스파일일 저장될 것이다.
+소스파일은 bin에 생성될것이다. 
+
+src는 .java
+bin은 .class
+
+perspective - 이클립스의 창 배열/java perspective/뷰들의 종류가 달라짐,메뉴가 달라짐/언제든지바꿀수 있음
+
+
+
+넷빈즈
+file new -java-java appliation
+location(D:netbeansworkspace)로바꿈-mainclass체크해제
+jdk확인: tools-javaPlatform Manager 
+
+
+
+hw. 집에서 이클립스,넷빈즈 설치해보기.

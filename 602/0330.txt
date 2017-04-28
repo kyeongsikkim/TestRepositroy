@@ -1,0 +1,167 @@
+p.288   상속
+상속이유? 
+빨리 개발하기 위해서/반복된 코드 중복을 줄여준다-부모 자식 따로따로 만드면 다 수정해야하지만
+상속하면 하나만 수정하면 된다./객체의 다형성을 구현-
+
+private필드 메소드는 상속받을 수 없다.
+default필드 메소드는 다른패키지에서 상속받을 수 없다.
+
+extends 
+A를 상속해서 B를 만든다. = A의 자식 B를 만든다 
+
+(ch07.exam01)
+[Parent] 
+[Child]
+[ChildExample]
+child객체만 생성해도 자동으로 parent 객체도 생성된다. 
+
+
+p.293
+객체는 생성자가 호출해야 만들어진다? 
+자바는 예외가 없는데 ... parent생성자가 어딘가에서 호출되었는데....
+컴파일러가 child 생성자를 추가할때 
+public Child(){
+	super();  //부모 생성자 실행 
+} 가 생긴다. 
+
+- 어떤 생성자가 먼저 끝날까? 부모 생성자
+- 부모 객체가 먼저 생성되고 자식객체가 생성된다. 
+- super는 Child생성자에서 제일 첫번째에 위치해야한다.
+
+super에서 매개변수가 없는 defaulf값 생성자가 자동으롤 생성되는데,
+만약, 생성자의 매개변수 값이 default가 아닌 생성자가 parent에 존재한다면?
+
+Parent(String lastName){
+	this.lastName=lastName;
+}
+
+Child(){
+	super("김");
+}//항상 김씨 
+
+Child(String lastName,String firstName){
+		super(lastName);
+		this.firstName=firstName;
+	}//lastName이 Parent의 lastName으로 저장됨
+
+
+(exam02)
+객체를 생성할때 이름을 부여하게
+
+child객체만 생성해도 
+
+
+p.295
+(exam03)
+부모가 가지고 있는 메소드를 자식이 다시 정의한다- 메소드 오버라이딩 :상속과관련
+조건:
+부모의 메소드 선언부와 자식의 메소드 선언부가 일치해야한다.
+부모의 접근제한보다 낮은 접근제한을 할수 없다. - default- default or public ,보통 같게 함 
+
+오버라이딩을 한것인지 아닌지 (실수할지도 모르는...?) 확인하는 방법-@override  //어노테이션(주석)
+어노테이션-자바코드가 아니지만 내부적으로 자바코드가 들어감. 실행이 되는 내용을 가지고 있음.자바에서 제공해줌
+자동으로- ctrl+space    /Source-Override/ImplementMethods
+
+
+
+p.298 부모 메소드 호출
+(exam04)
+ChildExample 에서 parent의 sound메소드 호출할 방법 없어!
+방법은-Child에서 
+void parentSound(){
+	super.sound(); //parent의 sound메소드 호출
+}
+
+
+
+p.300
+final
+final 용도 -
+1.final class - 이클래스를 상속하지 마라.  -상속관련
+2.final field /final variable - 값 변경 할수 없다
+3.final method - 오버라이딩 하지 마라.재정의하지마!-상속관련
+
+
+(exam05)
+java.lang - Class(String) -public final class String  //String은 부모가 될수 없다.
+
+java.lang - Class(Math) - field - PI -public static final double PI
+
+final이 되면 상속할 수 없다. 
+final이 되면 재정의 할 수 없다. 
+
+
+
+1.알마인드 비번
+2.네이버이메일
+보내기
+
+희망기업중 공채나온곳 -들어가서 캡쳐 해서 한글파일- 
+
+
+=======================================================================================
+p.303 protected 접근제한자
+(exam06)
+상속 x - 객체생성하여 import하여 접근
+
+protected 같은패키지에서는 default와 같다.다른 패키지에서 사용하려면 상속을 통해 사용!
+
+생성자에도 protected 붙을수 있나? ㅇㅇ
+무조건 상속해서 사용!! new로 객체 생성할수 없음. 
+
+
+p.305  타입변환
+기본타입 -
+
+자동타입변환:작은->큰
+강제타입변환-큰->작은
+
+
+참조타입-
+A<-B<-C
+부모가 더 큰 그릇
+
+자동타입변환
+C c = new C();
+B b=c;
+A a=b; 
+
+강제타입변환
+C c=new C();
+A a=c;
+B b=(B) a;
+C c=(C) a;
+
+
+p.308
+p.324 강제타입변환
+부모->자식 
+애초에 만든객체가 클래스의 특성을 가지고 있어야해!!
+
+
+
+(exam07)
+다형성:다양한 기능이 나온다
+TypeChangeExample
+PolymorphismExample
+
+
+
+
+
+
+상속에서 재정의 하면 재정의된 메소드에서 호출됨.
+
+
+
+코드는 같지만 들어오는 객체에 따라 실행이 달리됨 =다형성 =>부품교체와 밀접한관련
+다형성 조건:
+1.타입변환기능필요
+2.재정의있어야함
+
+어떤객체가 대입되었는지에 따라 다르게 실행됨
+
+
+
+
+hw. 예제 !! ~p.328

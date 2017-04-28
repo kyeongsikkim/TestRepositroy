@@ -1,0 +1,84 @@
+p.975 Service클래스 
+생성
+Service를 상속-createTask()재정의
+task안에는 작업할 내용
+call()만 재정의
+
+Service 시작, 취소, 재시작 
+-Service 자체적으로 스레드 가지고 있음 
+(Task는 별도로 스레드 만들었음)
+start()
+cancel()
+restart()
+//JavaFX Application Thread 에서 호출 
+
+
+(exam39)
+btnStart.setOnAction(e->handleBtnStart(e));
+btnStop.setOnAction(e->handleBtnStop(e));
+
+
+
+
+p.980 화면이동
+(exam40)
+
+
+(exam41)
+
+<login에서 StackPane가는법>
+login에서 scene로 갔다가 (getScene())
+scene에서 최상위객체로 (getRoot())
+
+
+how1
+
+
+
+how2
+
+
+p.985 애니메이션
+애니메이션이 끝날때 remove
+
+
+출발값에서 종료값까지 무엇을 변화시킬것인가? 
+keyvalue-value . 어떤것을 어떤 값까지 변화시킬것인가
+keyframe - 변화를 몇초동안 할것인가
+timeline - 위의 정보들로 변화시켜줌  (play()) 
+
+
+(exam42)  메인->로그인 슬라이드로 이동
+
+parent.setTranslateX(350);
+
+
+애니메이션 종료되면 이벤트발생!!-리스너ㅓㅓ   이벤트핸들러!!
+
+
+
+투명값
+
+
+
+
+====================================================================
+
+
+
+server /client
+
+server
+
+
+
+
+
+인터럽트나오려면-상대방이 데이터를보내줌/정상종료  -1/비정상종료 예외
+
+-서버가 종료하면 
+
+
+
+
+데이터보내면 read()메소드에서 

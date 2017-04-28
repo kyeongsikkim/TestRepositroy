@@ -1,0 +1,162 @@
+
+start()
+- main에서 launch가 실행되면 javaFXApplicatioㅜ 스레드가 만들어져서 실행됨
+
+p.860
+padding -버튼과 HBox의 여백(Hbox기준)
+margi- n버튼 기준)
+
+Insets객체로제공
+
+p.862
+FXML과 자바코드 매핑관계 
+
+FXML에서 대문자 아니면 자바에서 거의 메소드 (set~)
+
+
+태그
+시작태그있으면 무조건 끝태그 있어야함 
+
+
+fx:value="값"
+
+fxml에서 정수,실수 구분 없음
+
+fx:constant="상수"
+
+fx:factory="정적메소드"
+
+
+p.367
+FXML로딩과 Scene생성
+-fxml불러옴 
+-루트엘리먼트객체가 리턴된다 
+
+p.369
+Scene builder
+
+p.871
+JavaFX컨테이너
+AnchorPane-좌표로배치하는방법
+-prefwidth  정해진게아니고 ...
+-
+
+HBox -컨트롤의 높이 확장, 폭 유지
+VBox -컨트롤이 폭 확장, 높이 유지 
+-alignment
+-spacing
+-<children>
+
+(exam06)
+VBox를 루트로 만들기 : 
+document-오른쪽클릭-wrapin-
+
+<Image url="@images/javafx.jpg" />  
+//@ - 상대경로(현재 파일에서 )
+
+
+버튼-Hgrow (Always)로 바꿔도 안바뀜 
+-버튼은 글자크기에 맞춰서 크기정해짐...
+
+텍스트필드-Hgrow(Always)로 바꾸면 바꿔짐 
+
+spacing-컨트롤간 간격 
+
+
+(exam07 실습)
+
+p.875
+BorderPane
+-컨트롤을 배치하는 컨테이너 
+-top,bottom,left,right,center
+-배치안하면 center
+
+(exam08)
+
+
+p.877 
+FlowPane
+-hgap
+-vgap
+(exam09)
+
+TilePane-그리드로 컨트롤을 배치하되 고정된 셀 크기를 갖는 컨테이너.크기동일
+
+p.880
+GridPane-그리드로컨트롤을 배치하되 셀의 크기가 고정적이지 않고 유동적인 컨테이너
+	-셀병합이 가능 
+-rowIndex
+-columnIndex
+
+p.881 
+StackPane-컨트롤을 겹쳐 배치하는 컨테이너 
+
+=====================================================================
+
+p.885 JavaFX 이벤트처리
+
+이벤트핸들러
+
+FXML 컨트롤러
+-컨트롤러를 지정해서 이벤트를 처리
+-fx:controller
+
+실행클래스에서 fxml을 로딩하게되면(fxml load())
+Controller.java 가 자동으로 만들어짐 
+그리고, fxml안에있는모든 객체가만들어짐 
+
+Initializable구현, initialize 재정의 
+생성자정의안함-기본생성자를 이용해서 객체 만든다 
+
+@FXML 어노테이션을 통해서 xml에서 만든객체를자동으로 연결해줌 
+fx:id 이름과 필드 이름 같아야함 
+@FXML private Button btn1;
+
+(exam13)
+how1 / 익명객체로 이벤트 실행
+how2 / how1을 람다식으로
+how3 / 메소드 만들어서 이벤트 실행
+
+
+onAction="#btn3Handle"  //이버튼클릭되었을때 실행 
+
+primaryStage.setOnCloseRequest(event ->{
+            System.out.println("Closd");
+});   //종료누를때 이벤트....
+
+
+
+p.889 JavaFX속성감시와 바인딩
+속성
+-getText()
+-setText()
+-textProperty()  -속성감시 :컨트롤간 속성을 감시하면서 바뀐다
+
+
+(exam14)
+
+ 
+p.892 속성바인딩
+-두컨트롤의 속성을 서로 연결하는 것 
+-바인딩된 속성들은 하나가 변경되면 다른하나도 변경됨
+
+단방향 바인드
+양방향 바인드
+언바인드
+
+
+(exam15)
+
+
+p.893 Bindings
+연산을 통해서 바인딩 
+
+
+
+이벤트처리-사용자가 액션했을때 발생하는것
+속성감시-사용자가 행위하는게 아니고 두 컨트롤간에 
+	한컨트롤이 속성이 바뀌면 다른 한컨트롤도 바뀌는 것 
+
+
+hw. 책에나온거 예제 해보기(~895)
+

@@ -1,0 +1,115 @@
+p.895 JavaFX 컨트롤
+버튼 컨트롤-마우스로 클릭을 할 수 있는 컨트롤로 ButtonBase를 상속하는 하위컨트롤
+Button
+CheckBox
+RadioButton
+ToggleButton
+Hyperlink
+
+
+tools-options-java-javaFx- save~체크
+
+(exam17) -checkbox,radioButton
+
+root-오른쪽-make Controller 
+
+initialize 실행 스레드- JavaFX Application Thread
+
+public void initialize(URL url, ResourceBundle rb) {
+	btnClose.setOnAction(e->{
+		Platform.exit();
+        });    //버튼 누르면 닫기
+
+
+
+checkBox
+checkImageView.setImage(new Image(getClass().getResource("images/geek-glasses.gif").toString()));
+
+
+radioButton
+radioImageView.setImage(new Image(getClass().getResource("images/BubbleChart.png").toString()));
+
+userData="BubbleChart"  //프로그램에서 처리하는 데이터
+
+
+p.900 입력컨트롤
+-TextField
+-TextArea
+-PasswordField
+-ComboBox
+-DatePicker
+-ColorPicker
+-HTMLEditor
+
+(exam18)
+ObservableList<String> value=FXCollections.observableArrayList();
+value.add("공개");
+value.add("비공개");
+comboPublic.setItems(value);
+
+
+p.904 뷰컨트롤
+-ListView:
+-TableView
+-ImageView
+
+(exam19)-ListView
+ObservableList<String> value=FXCollections.observableArrayList();
+listView.setItems(value);
+
+listView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() 
+//선택변경감시
+//테이블뷰하고 연동하기 위해서는 selectedIndexProperty?
+
+
+(exam20) 객체를 리스트로 제공
+
+Alt+insert  !! 
+
+
+listView.setCellFactory(value);  //셀을 만드는 역활의 객체를 등록
+//만들어주는객체가 Callback객체. 제네릭타입으로 ListView,ListCell
+//ListCell 메소드  - 
+//call메소드-리스트뷰에 데이터(폰객체)가 제공될때 실행됨
+//한 행의 객체가 ListCell.  
+
+//updateItem 재정의 -listcell안에 뭐가 들어가는지 정의하는 메소드
+
+
+*익명객체 만들때 클래스이면-상속/인터페이스면-구현
+
+fxid 안씀-controller에서 사용하는게아니고 
+
+fxid-컨트롤러의 @FXML어노테이션에서 참조를 위해서
+	(@FXML   )-필드에서만 사용
+id-코드에서 직접 id값으로 찾을때 사용/css에서 객체를 찾을때
+	 (lookup() 메소드로 아이디 주면 아이디에 해당하는 객체가 리턴됨)-]
+
+fxid,id 두개 쓸수있음
+
+
+=================================================================
+
+
+HBox hbox=(HBox)FXMLLoader.load(getClass().getResource("item.fxml"));  
+//item.fxml 과연결 / 루트엘리먼트가 HBox니까
+
+
+lookup("#image")   //id로 찾을때 #씀 
+
+super.updateItem(item,empty);  //부모에 있는거도 실행하고, 내꺼도 실행하고 
+
+
+
+
+(exam21) 실습 
+
+
+
+
+
+
+
+(exam22) TableView
+tableView.getSelectionModel().select(newValue.intValue());
+tableView.scrollTo(newValue.intValue());

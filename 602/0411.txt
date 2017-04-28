@@ -1,0 +1,156 @@
+리스트 -기본값은 저장못하고 객체저장 
+
+
+(exam07) function
+
+메소들호출했을때 객체에 따라서 실행결과 다름 
+
+Function<Member,String>  //매개타입 Member, 리턴타입 String 
+
+
+(exam08)
+
+
+p.697 Operator
+(exam09)
+
+
+
+
+ch15. 컬렉션 프레임워크
+
+배열-길이 정해지면 변경할수 없음.
+
+
+리스트- 인덱스 값을 remove하면 앞으로 당겨짐
+	인덱스 삽입하면 맨뒤부터 넣어짐
+
+Collection
+-List-list라는ㄴ 인터페이스로 사용가능한 컬렉션
+	순서를 유지하고 저장(인덱스)
+	중복저장가능
+	
+-Set-set이라는 인터페이스로 사용가능한 컬렉션 
+	순서유지하지않는다(순서와상관없이저장)
+	중복저장안됨
+	
+-Map-
+	키와 값 쌍으로 저장 
+	키는 중복저장안됨
+	같은 값 저장 됨 
+ 
+
+p.724 List컬렉션
+객체추가-add-맨끝에 
+객체검색-get-인덱스로찾음
+	contains-리스트안에 객체 있는지
+	isEmpty-리스트안에 객체 없는지-true
+	int size
+객체삭제-clear-다 삭제
+	remove-인덱스로지워
+	remove-객체지워
+
+
+
+ArrayList
+(exam02)
+공유객체가 arrayList라고 가정
+멀티스레드환경에서 vector를 사용하고자 할때 
+
+
+LinkedList
+하나의 객체에 추가적인 저장공간이 붙어-다음의 위치정보는 어디인가
+
+
+Set
+반복자 iterator()
+하ㄴㅏ씩빼서 처리 
+-hasNext() -set에서 가져올게 있느냐 
+-next()-있으면 하나가져옴
+-remove() 
+
+next() 밖으로빼는게아니고 번지를 대입할 뿐 
+
+
+for(String str;set){
+...
+set.remove(str);
+}//에러 
+
+iterator.remove() 쓰는게 안전함 
+
+
+HashSet
+객체가 동등한지 아닌지 해시코드로 구별 
+해시코드 값 비교 - 다르면 다른객체
+		같으면 equals()비교 -다르면 다른객체
+					-같으면 동등객체- 빼고 넣음 
+
+(exam03)
+
+Map
+키와 값 한쌍- Entry
+키는중복될수없음
+값은 중복가능
+객체추가- put 
+객체검색-containsKey 
+
+
+
+
+============================================================
+Map
+
+
+HashMap
+
+Map<K,V>map=new HashMap<K,V>();
+
+
+
+p.748
+properties
+<String,String>
+
+유지보수 편리함 
+ISO 8859-1문자셋 -숫자,알파벳,라틴어,...
+
+
+(exam05)
+properties 파일로 작성 
+
+보통 properties의 위치는 class와 같이 있음
+
+
+p.750 검색기능을 강화시킨 컬렉션
+
+이진트리를 사용하기 때문에 검색 속도 향상
+
+범위검색이 쉬움 
+ex)6이상인 값만 찾을때 오른쪽만, 
+6보다작은 값만 찾을때 왼쪽만
+
+TreeSet
+Set이니까 순서는 없음
+
+
+p.763 Coparable / Comparator
+
+TreeSet<Integer> set=new TreeSet<>(Collections.reverseOrder());
+//큰수부터출력됨
+
+
+Comparable 구현한 객체-비교기능 가짐-
+comparable 구현하지 않은 객체- 비교기능없음-
+	외부에서 비교자(어떻게 비교하라는 정보자를 주는 객체)를 주면?
+	Comparator를 넣어주면 비교가능 
+
+
+return o1.getName().compareTo(o2.getName());
+
+return Integer.compare(o1.getAge(), o2.getAge());
+
+비교기능 있는거/컴페러터  - 컴페러터 가 우선순위!!!
+
+
+p.767 LIFO/ FIFO

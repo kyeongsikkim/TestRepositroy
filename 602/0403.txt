@@ -1,0 +1,215 @@
+9장 . 중첩클래스와 중첩인터페이스
+p.391
+(exam01)
+class B{}  :인스턴스멤버클래스
+static class{} : 정적 멤버클래스 - class 이름으로 접근할 수 있다. 
+
+생성자와 메소드안에 클래스 생성 가능 
+ A(){
+	class D{}
+}  //:로컬 클래스 -생성자가 끝날때까지 사용가능  
+void method(){
+	class E{}
+} //:로컬 클래스 -  메소드 안에서만 재사용 하고 싶을때 
+
+
+class B{} -클래스가 없이는 사용할 수 없는 것들 (A가 있어야 B가 의미있다)
+
+static class{}-A가 없어도 되지만 A를 처리할때 C를 쓴다. (A와 관련된 것이다.) 
+//파일로 만들어짐 (A,A$1D....)
+
+
+p.396
+int aField;
+자바는 블록단위 변수. 어디든 사용가능
+
+p.399
+(exam03)
+final int localVariable=2;
+class D[
+	void dMethod
+
+로컬 변수가 로컬 클래스 안에서 사용되면,무조건 final 로 선언해야한다.(~1.7버전)
+로컬 변수가 로컬 클래스 안에서 사용되면,자동으로 final 선언된다. final특성을 가지기 때문에 값변경할수 없다.  (1.8버전) 
+
+왜 final 특성 가져야 할까 ? 
+생성자 스택에 생성되는데 그안에 메소드ㅡㄴ 힙에 생성, 블록이 끝나면 스택에 있던 필드가 사라지는데,
+-복사시켜줘 자동으로 (메소드안에 필드(final안붙이면)or메소드안에 메소드 안에 필드에(final붙이면)
+-복사시키는건데 값이 바뀌면 안되니까 
+
+
+A.this.field=10; //중첩클래스에서 바깥클래스의 객체 참조할때 
+
+
+(exam05)
+A a=new A();
+A.B b=a.new B();   //A클래스 외부에서 인스턴스멤버클래스 B의 객체를 생성
+//클래스B 객체를 생성하려면, class B는 A가 있어야 사용가능하므로, 
+A객체를 먼저 만들고, a안에 B객체를 생성하여 A안에B클래스 타입의 b변수에 저장한다. 
+A.C c=new A.C();    //A클래스 욉에서 정적멤버클래스 C의객체를 생성
+//클래스C 객체를 생성하려면, class C는 A가 없어도 사용가능하므로 
+A의 C클래스의 객체를 생성하여 A안에C클래스 타입의 c변수에 저장한다. 
+
+
+
+p.402
+(exam06)
+중첩인터페이스-클래스의 멤버로 선언된 인터페이스.클래스와 긴밀한 관계를 맺는 구현클래스
+public class Example implements A.B 
+//A의 중첩인터페이스인 B를 구현한 Example클래스
+
+
+p.404 익명개체 -중요
+(exam07)
+부모타입으로 필드선언, 자식객체를 초기값으로 대입.
+-> 부모클래스 상속하여 자식클래스 선언- 자식객체생성-필드에 대입 
+B2 b2=new B2();
+b2.bMethod(); //재정의된 메소드 호출
+		
+A.B b=new B2();
+b.bMethod(); //재정의된 메소드 호출
+
+익명객체생성-초기값대입
+A.B b=new A.B(){	
+}; //생성자호출하면 중괄호,
+B를 상속해서 자식에 정의한다음, 자식을 객체로 만들어서 대입,B2를 생성한거와 같은뜻 =익명객체
+
+---------------------------------------------------------------------------------
+인터페이스타입으로 필스선언,구현객체를 초기값으로 대입.
+->구현클래스 선언 - 구현객체 생성 -필드에 대입
+class CImpl implements A.C{
+}//C라고하는 interface를 구현한 CImpl을 만들겠다.
+
+익명객체생성-		
+A.C c=new A.C(){
+};//C를 가지고 구현클래스를 만드는데, 괄호안에 내용을 넣고 , 객체를 생성하여 대입
+
+=>클래스냐 인터페이스냐에 따라 해석이 달라짐!!
+
+
+
+(exam08) 안드로이드에서 버튼.이벤트처리
+외부에서 인터페이스로 사용가능한 객체가 들어옴
+
+어떤객체를 생성하느냐에따라 Button의 touch메소드의 실행결과가 달라짐
+
+
+hw.8장 확인문제, 9장 예제 다ㅏㅏㅏㅏ ,확인문제 
+
+
+
+
+
+p.422 10장. 예외처리
+에러
+예외-프로그램중 잘못된 데이터가들어왔던지, 예외처리를통해 돌아갈수 있음
+
+1.일반예외-컴파일러가 이미 예외가 발생할것같은 곳에 체크를해쥼 
+2.실행예외-커ㅁ파일러가 미리 체크하지 못하는 예외
+
+
+예외도 객체로 생각
+객체를 만들기 위해 설계도 있어야됨 - JVM이 실행하다가 예외클래스가 있는지 보고 객체를 생성
+모든 예외는 java.lang.Exception
+
+RuntimeException-실행예외-컴파일러가 체크 안한다. 
+다른거-일반예외 - 컴파일러가 체크 
+
+p.423
+NullPointerException- -객체가 없는데 사용하고자 할때 
+//String str=null;
+//System.out.println(str.length());
+		
+ArrayIndexOutOfBoundsException
+//String[] arr={"a","b"};
+//String data1=arr[2];
+
+(ch10.exam01)
+Integer.parseInt   Integer클래스에 parseInt 메소드 
+
+NumberFormatException
+//int num=Integer.parseInt("a100");
+
+ClasCAstException
+//Animal animal =new Dog();
+//Cat cat=(Cat)animal;
+
+실선-상속  / 점선-구현
+
+
+p.429 예외 처리 코드
+try
+catch
+finally (option)
+
+try{
+	String str=null;
+	System.out.println(str.length()); //NullPointerException 객체 생성
+} catch(NullPointerException e){  //예외객체의 번지를 e에 넣어줌
+	System.out.println(e.getMessage());//e라는 메소드가 가지고 있는 번지로 가서 getMessgae메소드 호출->값을 리턴
+}finally{
+}
+
+
+p.433 예외 종류에 따른 처리 코드
+(exam03)
+
+}catch(NullPointerException | ArrayIndexOutOfBoundsException e){  //Java7에서 추가된 부분
+
+
+
+=================================================================================
+
+
+p.436
+
+catch(Exception e){
+}
+제일마지막에 넣으면 첫번째 catch->두번째 catch->마지막catch
+
+
+p.440 예외 떠넘기기
+예외처리...
+try{
+
+}catch(...)  
+
+int method(....) throws xxxException,나열....
+이 메소드 안에 실행을 잘못하게되면 이 예외가 발생한다.
+
+호출한 곳에서 예외처리를 해야한다
+
+
+
+ch05-exam03
+내가 발생한 예외를 내가 처리하지 않는방법
+
+
+JVM은 예외를 출력하고 끝내
+
+
+
+
+p.445
+(exam05)
+사용자정의예외
+왜? 자바에서제공안해주는 예외는 만들어서 써야되니까 
+
+
+만들어.
+모든 예외는 Exception상속!! 
+생성자 2개 - 기본생성자, 스트링타입을 받는 생성자 -message는 getMessage처리할때 사용...?
+
+언제이예외가 발생해야하나? 
+throw new BalanceInsufficientException(); -예외발생코드 -여기서 예외발생시킨다.
+-> 나를 호출한 쪽으로 예외를 넘긴다
+
+
+
+e.printStackTrace();
+스택에 내용을 추적해서 프린트  ,개발할때 용이, 개발하고나서 지워야됑
+
+
+
+hw. 10장 확인문제 
+

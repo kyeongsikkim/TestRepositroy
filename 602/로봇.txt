@@ -1,0 +1,41 @@
+
+RobotExample
+
+Robot
+Head-상/하/좌/우  /얼굴?물체?인식카메라/표정/말하기/
+Body-앞/뒤/좌/우  파워온/오프
+Arm-앞으로?/뒤로?/만세?
+Hand-터치/악수/
+Leg-앞으로?/뒤로?/회전/구부리기
+Foot
+-------
+이름
+넘버
+height/
+스피드
+
+
+
+Robot{
+Head head=new Head();
+Body body=new Body();
+Arm[] arms={new Arm(), new Arm()};
+Leg[] legs={new Leg(), new Leg()};
+
+
+
+
+
+
+
+
+
+
+RobotExample{
+	main{
+Robot myRobot=new Robot(이름,넘버 );
+스타트.
+
+
+스탑
+}

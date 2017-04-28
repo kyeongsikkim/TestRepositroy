@@ -1,0 +1,192 @@
+Tools-Templates-WEb-JSP 에 
+<link href="/WebApplication/resources/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<script src="/WebApplication/resources/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="/WebApplication/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+추가
+
+(exam05.jsp) 만들면 자동으로 들어감   <String의 메소드>
+w3s  -references- JavaScript-JavaScript Reference- javascript-JS String 
+
+
+substr- (시작, 길이) 
+substring- (시작, 끝)
+
+
+(exam06.jsp) <날짜 정보 얻기>
+Date()
+
+
+(exam07.jsp) <배열>
+var arr1=["Saab","Volvo","BMW"];
+var arr2=new Array("Saab","Volvo","BMW");
+var arr3=["Banana","Orange","Apple","Mango"];
+
+arr3.push("Lemon");   //배열 넣기
+
+arr3.splice(2, 1, "Kiwi");  // (인덱스, 제거할수, 배열)
+
+
+
+(exam08.jsp) <자바스크립트 객체>
+var car={
+//필드(속성)
+"model":"승용차","company":"현대","speed":0};
+
+//메소드
+"start":function(){
+console.log("시동을 겁니다.");}
+//메소드 호출
+car.start();
+
+
+
+
+---
+Brower BOM
+HTML DOM
+
+
+
+Web Brower 에
+함수 (Global) 
+-parseInt()
+-eval()
+..........
+
+<script>에서
+parseInt() 사용가능 
+
+BOM 객체 (window, location.....)   -(Browser Object Model)브라우저에서 제공
+			-브라우저의 정보를 갖고 있는 객체
+			-ex. 브라우저의 현재 URL을 알고싶다...
+DOM 객체 (    )-(Document Object Model)브라우저에서 자동적으로 만들어지는 객체들 
+			-html 문서의 정보를 갖고 있는 객체 
+			-ex. 브라우저의 어떤 이미지를 바꾸고 싶다...
+			-HTML 페이지를 바탕으로 만들어짐 
+			-각 태그들에 대해서 객체가 만들어짐 
+객체로접근해서 . 써서 사용 
+<script>
+window.메소드();
+div.메소드();
+</script>
+
+
+
+(exam09.jsp) <글로벌 함수>
+var v3=parseInt(v1)+200;
+
+(exam10.jsp) <BOM>
+window
+navigator
+screen
+history
+location
+
+console.log(window.outerWidth + "," + window.outerHeight);
+
+window.open(URL, name, specs, replace)  // (URL, 팝업의 식별이름, 메뉴바툴바옵션?,
+
+[팝업열기/닫기]
+function handleBtn1(){
+	pop1=window.open("/WebApplication/javascript/exam09","pop1","width=300,height=200");}
+function handleBtn2(){
+	pop1.close();}
+
+[주기적 실행]
+setInterval(function, milliseconds, param1, param2, ...)
+
+[지연실행]
+work1=window.setInterval(function(){console.log(new Date());},1000);
+window.clearInterval(work1);
+
+window 생략할수 있다.....
+
+
+
+(exam11.jsp) <DOM>
+[이미지 변경]
+var img=document.querySelector("img");  //위에서 아래방향으로 찾음 
+img.src="/WebApplication/resources/image/photo04.jpg";
+
+var imgArray=document.querySelectorAll("img");// 현재document에서 img를 모두 찾아 배열로 리턴. 
+
+[요청 경로 변경]
+location.href="/WebApplication/javascript/exam09";
+
+이미지 찾을때 
+var img=document.querySelector("img");   
+var img1=document.querySelector("#img1"); 
+var class1=document.querySelectorAll(".class1");
+
+W3C 객체 !!!!
+
+
+-------------
+[jQuery] 
+-JavaScript Library 
+-$("#id") -객체를찾아오는 기능 
+
+(원리)
+var img1=document.querySelector("#id");
+	-W3C DOM 객체    
+	-W3C Document
+
+var img1=$("#id");
+	-jQuery 객체
+	-jQuery Document
+
+
+var imgArray=$("img");
+imgArray.attr("src","/WebApplication/resources/image/photo04.jpg");
+//attr-src속성을 다 바꾼다 
+
+
+http://api.jquery.com
+
+
+
+===============================================
+http://localhost:8080/WebApplication/jquery/
+
+(exam02.jsp)  <로드완료함수>
+
+
+(exam03.jsp)  <DOM 내용 변경>
+
+
+
+Ajax(Asynchronous JavaScript and XML, 에이잭스)는 대화식 웹 애플리케이션의 제작을 위해 아래와 같은 조합을 이용하는 웹 개발 기법이다.
+
+-페이지 이동 개념이 아니라 
+-
+
+img가 나오고 <script>부분이 실행되어야 하는데... 
+$(function(){});   이 안에 넣어주면 됨
+$-jQuery 의 약식표현!!!
+
+
+
+(exam03.jsp)
+
+
+(exam04.jsp)
+(exam04_html_fragment)  -html 조각 받아오기 
+
+
+jquery-Ajax
+.메소드 -> 
+jQuery.메소드()  -> 
+
+
+$.ajax({
+url: "/WebApplication/jquery/exam04_html_fragment",
+success:function(data){
+$("#div1").html(data);
+}
+});
+
+(exam04_html_json) -json 파일 받아오기 
+json-JSON (JavaScript Object Notation)은 경량의 DATA-교환 형식
+
+배열안에 객체 4개~~~
+{"fileName":"photo05.png","message":"메시지5"},

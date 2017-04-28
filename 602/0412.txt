@@ -1,0 +1,96 @@
+ch18 IO기반 입출력 및 네트워킹
+java.io 패키지
+p.995
+
+Reader-InputStream과 역활 같음
+
+스트림:데이터의흐름
+입력-키보드/파일/프로그램
+출력-모니터/파일/프로그램
+
+프로그램기준으로 데이터 보내면 출력스트림/받으면 입력스트림
+
+바이트기반스트림-모든종류데이터
+		InputStream/OutputStream
+문자기반스트림-문자만
+		Reader/Writer
+
+InputStream-바이트기반입력스트림의 최상위클래스
+read() 한바이트만 읽음 
+	리턴 타입이 int지만 앞에 세자리는 0으로하고 마지막 한바이트만 읽음
+read(byte[])   배열크기만큼 읽음
+read(byte[],b,int off int len) - 
+close()
+
+
+넷빈!!!!!!!!!!!!!!!!
+import-ctrl+shift+i
+(exam01)
+ int v1=is.read();
+System.out.println("v1: " + (char)v1);
+
+
+p.997
+read(byte[] b)
+
+읽은데이터를 저장
+크기3인 배열에 3개 넣엏다면 
+다음번에 두개를 읽으면 하나는 이전에 읽었던게 저장되어 있다. 
+
+
+read(byte[]b, int off, int len)
+
+
+close- stream사용하면 항상 써야됨 
+
+
+p.1000 OutputStream
+write(int b) - int 4바이트중 끝 한바이트만 보냄
+write(byte[]b)-바이트배열에 있는 전체데이터를 보냄
+write( ) -~부터 몇개까지 보냄
+flush()-버퍼꽉차면 보냄
+close()-
+
+
+실제출력이 되는경우
+1.내부 출력버퍼가 꽉 찼을경우-자동 flush
+2.명시적으로 flush() 호출할경우-수동 flush
+3.출력스트림을 close()로 닫을경우-자동flush
+
+(exam04)
+
+
+p.1002 Reader
+문자기반 입력스트림의 최상위클래스
+read() -한개문자
+read(char[] cbuf)
+read(char[] ....)
+
+
+p.1005 Writer
+문자기반 출력스트림의 최상위클래스
+
+----------------------------------------------------------------
+
+
+p.1009 3. 콘솔 입출력
+
+System.in 
+System.out
+System.err
+
+(exam10)
+ConsoleExample  
+how1
+how2
+how3
+
+
+p.1018  4. 파일 입출력
+File 클래스
+파일 시스템의 파일을 표현하는 클래스 
+(exam11)
+String[] contents1=dir.list();  //파일,디렉토리 이름을 리턴 
+File[] contents2=dir.listFiles(); //파일의 파일객체를 배열로 만들어서 리턴
+
+

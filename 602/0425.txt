@@ -1,0 +1,150 @@
+웹 어플리케이션 구조 
+
+컨텍스트 (최상위 폴더)
+   -WEB-INF(URL로 접근 불가)
+      -web.xml(배치기술자=Deployment Descriptior) DD
+         -lib  (~.jar)
+            -classes  (~.class)
+   -URL로 접근가능한 리소스 파일 (~.html,~.png,~.jsp)
+
+
+http://localhost:8080/context/index.html  -접근가능
+
+http://localhost:8080/context/web.xml    -접근불가능
+
+http://localhost:8080/context/resources/images/pig.png  -접근가능!
+
+
+
+http://localhost:8080/     -(/생략) ROOT Context (기본 컨텍스트)
+
+
+Tomcat/webapps/myapp 만들어 /WEB-INF만들어
+http://localhost:8080/myapp/index.html
+
+index.html
+index.jsp 
+-Welcome File  - http://localhost:8080/컨텍스트 로들어가면 제일먼저 보여진다.  
+
+
+
+
+<<XML>> 
+1. 용도 :데이터(문자)----전달--->프로세스(프로그램)
+ex.
+<a>A<</a>
+<b>B</b>
+<c>C</c>
+태그로 데이터를 설명함
+프로세스는 태그로 데이터를 알수 있슴 
+데이타 +의미(구조)
+
+
+web application  --------------> Tomcat(웹서버)
+	          (Deployment)
+web.xml -배치기술자 (DD)
+
+
+2. 작성방법 : 까아롭다, 정확한 문법이 있다 
+XML문서선언
+<?xml version="1.0" encoding="UTF-8"(옵션(XML문서의 문자셋)?>  default(ISO)
+
+<루트태그>
+
+   <자식태그>....</자식태그>
+
+
+</루트태크>
+
+
+태그이름 작성규칙
+-공백X
+-숫자X
+-반드시 끝태그 존재
+
+속성 작성 규칙
+<태그 속성명="속성값">
+
+
+
+3. 네임스페이스 선언 (Name Space) ,접두사(prefix)와 마크업랭귀지를 매핑시킨 역활
+3-1용도: 태그와 속성의 식별역활
+	<a> ... </a>    -A라는 Markup Language에서 온거 
+	프로세스가 접두사를 보고 다르게 처리함 
+
+
+3-2 네임스페이스선언방법
+
+CML
+http://도메인주소/cml-(버전)    :네임스페이스이름
+
+PML
+http://도메인주소/pml-(버전)   :네임스페이스이름
+
+
+DTD/XML Schema(~.xsd) 로 정의됨 
+
+<?xml
+
+<루트태그 xmlns="네임스페이스 이름"     -디폴드네임스페이스선언
+	xmlns:prefix="네임스페이스 이름" 
+	xmlns:xsi="네임스페이스 이름"
+	xsi:SchemaLocation="네임스페이스이름 XSD다운로드URL:
+			"네임스페이스이름 " 
+
+*유효성검사 
+-문법지켰다하더라도 알맞은 태그를 썼냐 안썼냐.....
+
+
+http://spring.io/
+springframework
+springframework reference
+
+
+
+
+
+HTML
+
+<!DOCTYPE html>  //html5
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+</body>
+</html>
+
+
+
+
+
+HomeControlloer  -
+@RequestMapping   //실행한다.......
+
+(html.jsp)
+<head>   -실행할 내용이 작성 
+<body>  -보여지는 내용이 작성 
+
+<h1> to <h6> Tags  -크기 1-6
+
+
+<button id="btnNaver" onclick="handleBtnNaver()">네이버</button>
+
+<script>
+	function handleBtnNaver(){
+		console.log("handleBtnNaver() ");
+	}
+</script>
+
+실행- 페이지 오른쪽 -검사- console 에서확인 
+
+이미지
+<img src="/WebApplication/resources/image/Tulips.jpg" alt="Tulips" height="500"/>
+
+
+

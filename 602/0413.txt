@@ -1,0 +1,195 @@
+p.1028 5. 보조스트림
+다른스트림과 연결이 되어 여러가지 편리한 기능을 제공해주는 스트림
+(문자변환,입출력성능향상,기본데이터타입입출력,객체입출력 기능제공)
+
+
+보조스트림은 주 스트림과 항상연결되어있음. 단독으로 생성할 수 없음
+보조스트림의 매개값을 주 스트림으로 넣어줌 
+
+1.문자변환보조스트림
+InputStreamReader
+네트워크에서는 reader로 못받을수도있음
+자동으로 문자로 바꾸어 주는 보조스트림사용
+
+(exam13)
+InputStream is=System.in;
+InputStreamReader isr=new InputStreamReader(is);
+//입력받은 바이트를 문자로 바꾸어줌 
+
+InputStreamReader isr=new InputStreamReader(is,"EUC-KR");
+//문자로바꾸어줄때 인코딩 지정해줌
+
+
+OutputStreamWriter
+(exam14)
+ byte[] data="가나".getBytes();  문자의 바이트 값을 넣어줌 
+
+
+OutputStream os =new FileOutputStream("src/ch18/exam14/test.txt");
+OutputStreamWriter osw=new OutputStreamWriter(os);
+//출력할 문자를 바이트로 바꾸어줌 
+
+2.성능향상보조스트림
+입출력 성능에 영향을 미치는 입출력 소스-하드디스크/느린네트워크
+
+버퍼에서 하드디스크 속도에 맞춰서 데이터 쥼 
+버퍼를제공해주는스트림
+
+BufferedInputStream, BufferdReader
+버퍼에 쌓아두고 필요할때 쓰기위하여 ....  -입력스트림
+
+BufferedOutputSream, BufferedWriter
+버퍼 항상 쓰는게 좋음. 그때그때 사용하기 위하여 -출력스트림
+(exam15)
+OutputStream os=new FileOutputStream("src/ch18/exam15/test.txt");
+BufferedOutputStream bos=new BufferedOutputStream(os);
+
+
+
+보조2스트림 보조2스트림 주스트림
+프로그램에 가까운순서부터 flush(),close()-데이터가 못갈수도 있으니까 
+flush()는 안써도되지만(close()쓰니까) 순서바뀌면 안돼 
+
+
+
+(exam17)
+InputStream is=System.in;
+InputStreamReader isr=new InputStreamReader(is);
+BufferedReader br=new BufferedReader(isr);
+        
+String line=br.readLine();
+
+//읽는단위가 lind단위 
+
+
+
+3. 기본타입입출력보조스트림
+DataInputStream
+DataOutputStream
+(exam18)
+
+
+4. 프린터보조스트림
+행단위로출력할때-PrintStream
+
+행단위로 읽을때-BufferedReader
+
+
+5. 객체입출력보조스트림
+객체를 파일 또는 네트워크로 입출력할 수 있는 기능제공
+-단위단위데이터보다 묶어서 보내느 것이 유용하다 
+ObjectInputStream(역직렬화)-
+ObjectOutputStream(직렬화)-객체를 열ㄹ로 보냄 
+
+writeObject 
+무조건 object타입이라서 객체타입ㅂㄴ환해야함 
+
+(exam20)
+
+serializable 인터페이스
+에는 아무거도 정의되지 않아있다 
+-개발자가 객체를 다른곳에 보내도 좋다...이런 허가 
+
+
+Member member=(Member)ois.readObject();  //멤버로 타입변환
+
+
+(exam21)
+public static String nation="한국"; //static은 직렬화의 대상이 되지 않는다 
+
+
+
+p.1049 serialVersionUID
+Client
+Server
+
+private static final long serialVersionUID=1; 
+//같은객체냐 아니냐 검사할때 /값 같으면 같은 객체로 간주 
+
+
+===============================================================
+
+
+p.1050
+
+
+(exam23)
+
+name,age-부모 -serial구현안함 
+
+상속관계에서 부모가 serial구현안하고
+자식객체로 보내게 되면 완전히 복원안되는 문제가 발생
+ 
+자식클래스에서 wirteObjec/readObject 만들어 (꼭 private으로)
+
+
+
+
+p.1052
+네뚜엌
+
+프로세스간 연결 
+서버/클라이언트
+서버-항상실행하고 있어야 하는것(웹서버,FTP서버,DBMS) 
+클라이언트-가끔씩 실행하고 받아와야하는것 (안드로이드앱)
+
+클라이언트가 서버에게 연결요청-서버가 연결수락-
+클라이언트가 서버에게 처리요청- 서버가 처리
+
+IP주소
+IPv6- 고유번호(mac adress와 유사한...) -변경안됨
+IPv4-고정아님 ,
+
+192.168.3.29
+255.255.255.0
+세번쨰까지 같으면 같은 지역 내 네트워크 
+
+물리적주소-mac adress 
+
+
+포트
+프로그램의 식별번호
+운영체제가 프로세스마다 식별할수 있는 번호 
+ip주소+포트번호
+0~65535
+0~1023 
+1024~49151
+49152~65535
+
+
+InetAddress
+
+DNS(ㅇDomain Name Service)
+도메인 이름을 ip로 
+
+
+InetAddress ia=InetAddress.getLocalHost();
+
+
+TCP(Transmission Control Protol) -(전화)
+연결지향적 프로토콜 
+통신선로고정(어떤 라우터를 거쳐서 전달이 됐는지 알수 있음 )
+연결하는 시간 소요 (시간 걸림)
+
+UDP(User Datagram Protocol)-(편지)
+통신선로고정아님(패킷 손실될수 있음)
+연결하는시간 소요하지않고 바로 보냄
+
+OSI 7계층
+
+물
+데
+네
+전
+세
+표
+응
+
+패킷에 순서대로 들어감 ,마지막에 데이터
+
+p.1057
+클랑이언ㅌ가 서버에게 연결요청하면 수락하고 통신용 소켓만듬 
+
+서버는 멀티스레드환경,
+100개 클라이언트라면, 서버에 101개 필요. (메인스레드)
+ 

@@ -1,0 +1,107 @@
+p.943 javaFX CSS 스타일
+자바어플리케이션=FXML+CSS+자바
+
+javaFX css 
+- css 속석명앞에 -fx 붙는다
+인라인스타일 
+-문제점: 동일한 스타일을 적용하는 컨트롤이 많을수록 중복코드가 늘어난다
+외부 css 파일
+-중복코드줄어든다
+-선택자:어떤 컨트롤선택해서 적용할것인가 
+	id 속성 -1개선택할때
+	스타일클래스 속성 -여러개선택할때
+Label{ }
+#idXX{ }   //id 무조건달라야해
+.XXClass{ }   //그룹의미
+
+Label.className{  } //Label인것중에 styleclas가 className인 것 
+
+
+properties-style-backgroundcolor-#000000 (RGB)
+
+
+<AnchorPane stylesheets="@root.css" ~~
+//이안에 내용은 root.css에 의해서 지정된다 
+
+
+
+p.947
+유사클래스
+focused
+hover
+pressed
+
+
+p.947  CSS 파일적용
+
+-fx-border-insets:0,10,20; 제일바깥/0에서부터10/0에서부터20
+-fx-border-color:red green blue yellow;  위 오 아래 왼 순으로 색 
+
+
+-fx-border-style:solid; //실선 dotted:점선 dashed:점선..인데 좀다름 
+
+-fx-background-color:rgba(255,0,0,0.5);
+rgba(0,0,0,0); R.G.B.A(투명) 1-불투명
+
+-fx-background-color:linear-gradient(to bottom right,#000000,#ffffff);
+
+
+
+p.957 font속성
+
+p.958 shadow 효과
+-fx-effect:dropshadow(three-pass-box,rgba(0,0,0,0.7),10,0,5,5);  
+
+
+p.959 화면스킨입히기
+
+
+
+
+p.961 JavaFX스레드 동시성
+javaFX UI는 스레드에 안전하지 않다. - 동시에 사용할 수 없다 
+-단일스레드에서써야하는구나~~
+-javaFXApplication Thread 가 담당
+
+작업큐
+worker thread에서 Ui 생성/변경하지말고 작업큐로감
+runnable객체 
+
+Platform
+ㅣ이벤트큐에작업내용을 넣어줌 (Platform.rnlater();
+
+
+p.965 Task클래스
+javafx.concurrent패키지
+
+Worker인터페이스 를 구ㅕㄴ하여 ㅁ만듬
+동기  -어떤일하다가 다른일 하다가 오는방식
+비동기 -ㄷ어ㄸㄴ일하다 다른이 들어오면
+Task-비동기작업을 표현한 클래스
+
+ㅅ스레드
+
+
+
+p.967
+
+
+
+updateProgress(i,100);  (변경되는값, 값이 가질수 있는 최대값)
+updateMessage(String.valueOf(i));  (변경할문자열) 
+
+
+call() 
+-Ui변경 코드 작성할 수 없다
+-updateProgress(), updateMessage() 메소드 호출해서 속성바인딩 
+-
+
+
+p.972 작업상태별콜백
+-succeeded
+-cancelled
+-failed
+
+
+how1
+how2

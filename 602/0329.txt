@@ -1,0 +1,170 @@
+exam05
+[Member]
+[MemberExample]
+Member[] members = new Member[100];
+:크기가 100인 Member배열 객체를 생성하여 그 번지를 members변수에 저장 
+
+
+
+Member객체는 현재 Null
+값을 저장하려면:
+Member객체 만들고 
+Member객체의 참조는 member 변수가 가지고 있음
+
+값을 삭제하려면:
+null로 만들어-원래 가리키던 값은 garbage값이됨
+
+중간에 null인부분에 값넣으려면:
+어디가 null인지 검사-null을 찾아 새로운 값 저장 
+
+
+members 인덱스 마지막 번호는 99니까 i<members.length
+
+
+
+p.140 메모리 사용영역
+클래스 안에있는 모든 코드들이 저장되는 곳
+
+메소드 코드는 메소드 영역에 있음
+객체가 생성되고 나서 호출.
+메소드 안에 값 안바뀜
+
+
+class xxx{
+
+//필드 
+-인스턴스 필드: 객체가 있어서 사용할 수 있는 필드(객체에 소속된 필드)
+-정적(static) 필드:고정된 필드-객체안에 존재하지 않음.메소드영역에 존재함(클래스에 소속된 필드)
+
+//생성자
+
+
+//메소드
+-인스턴스 메소드: 객체가 있어야 호출될 수 있는 메소드(객체에 소속된 메소드)
+-정적메소드:객체가 없어도 호출될 수 있음.(클래스에 소속된 메소드)-클래스 이름으로 직접 접근
+
+
+*설계도에 있다고해서 다 객체에 소속된 것은 아님.
+*객체안에 물리적으로 존재한ㄴ 것은 인스턴스 필드 밖에 없음
+
+
+인스턴스필드를 이용하는 메소드는 static이 될 수 없음
+인스턴스필드를 안쓰는 메소드는 static을 씀
+
+}
+
+
+
+생성자-객체를 사용할 준비를 해주는 역활.
+생성자를 실행 안하고 필드값을 계산하고싶으면?
+static필드의 복잡한 계산은 static 블록에서 함
+
+//static block
+	static{
+		
+	}//메소드영역에 코드가 다 올라간뒤 실행된다. 
+
+
+
+exam08
+[Calculator] 
+[CalculatorExample]
+p.243
+프로그램안에 객체 하나만 존재해야 한다?
+싱글톤패턴!
+생성자를 실행하지 못하도록 막아야돼
+
+private Calculator() 외부에서는 이 생성자를 저얼ㄹ대 호출할수 없다.
+private-ㄱ
+
+
+exam09
+[Member]
+String name;
+final String ssn; //생성자를 통해 딱한번 변경할수 있으나, 그이후 바꿀수 없음.
+			값을 주면 생성자를 통해서 변경할 수 없음..
+
+===========================================================================
+싱글톤
+new를 사용못하게하자=생성자를 호출못하게 하자
+
+메소드를 통해서 얻도록 해주자.- 항상 같은 객체의 번지를 리턴
+ 
+
+final
+
+static final - 공유데이터 개념 , 값을 바꿀수 없음   =상수
+
+static final로 선언된(상수) 필드명은 모두 대문자로~
+값 어디서 줄수 있나? static block. 한번 주면 못바꿔 -근데 안씀...
+
+
+
+
+p.248 패키지
+:클래스를 기능별로 묶어서 그룹이름을 붙여 놓은 것 
+패키지는 클래스 이름의 일부
+상위패키지+하위패키지+클래스 :하나의 식별자
+패키지이름 : 누가 무슨목적으로 만들었는지 알수있게. 다 소문자로 . _하나는 허용
+mycompany.com  - com.mycompany.javaprogramming
+
+패키지명으로 프로젝트이름됨-안드로이드-프로젝트식별함
+
+패키지는 소스의 제일 위에
+
+
+C:Temp/HelloWorld.java
+
+작성:
+package com.mycompany;
+
+class HelloWorld{
+  public static void main(String[] args){
+    System.out.println("Hello Package");
+  }
+}
+
+>dir
+>javac HelloWorld.java  //error
+>javac -d . HelloWorld.java  //디렉토리의 위치를 현재위치에서 만들어  d:directory
+
+-d 
+
+
+
+
+p.253
+(exam10)
+import 
+다른패키지의 같은 이름의 클래스를 import 하는 경우 에는 전체 패키지명을 언급해준다. 
+
+
+
+p.256 접근제한자
+(exam11)
+(pack1)
+(pack2)
+
+public 없으면  - 같은 패키지에서는 사용가능, 다른 패키지에서는 사용불가능
+ 
+class앞에 public 이있으면 기본생성자 public 으로 만들어짐...
+
+public 대신 아무것도 안쓰거나. private올수 있음
+클래스앞에는 public default만 올수있음 
+
+private -같은패키지도 접근 못해, 같은 클래스 안에서만 
+
+
+p.265
+(exam12)
+
+Source-generate getter and setter-set 체크 하면 set메소드 생겨
+
+하는이유 ? 잘못된 값을 받지 않기 위해서 ...
+
+값을 받아들이는 get메소드 필요
+boolean타입일 경우 get아니고 is
+
+
+
+hw. 수업내용까지 예제 코딩 / 6장 연습문제
