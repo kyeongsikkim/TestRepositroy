@@ -1,0 +1,132 @@
+방열판
+
+Win32DiskImager
+
+https://sourceforge.net/projects/win32diskimager/files/latest/download 다운로드
+
+이미지를 다운받거나 복구하는것
+
+2017-04-10-raspbian-jessie 이거를 winDiskImager 에다가 굽는다.
+
+라즈베리 올리면 처음에 180도회전되서 
+셋팅이 된다. 설정해줘야한다.
+
+config 를 열어서 마지막에 추가해준다
+#LCD Rotate//주석이다.
+lcd_rotate=2
+
+라즈베리 파이 로고 
+
+
+한글 폰트 설치 하기
+
+키보드 하구 마우스 안꽂고 환경하기 
+라즈베리파이 ip주소 알기
+
+터미널 열어서 
+ifconfig
+ip주소를 
+처음에 알수있게 확인 한다.
+
+HDMI 케이블을 통해서 본체에 연결을 한다.
+
+
+192.168.3.84
+
+ifconfig 를 통해서 ip 얻어오기 
+키보드없이 설정하기 
+
+interface 를 통해서 확인하기 enable 로 다 변경을 한다.
+
+putty 다운로드 데스크탑과 라즈베리 통신하기 위해서
+
+putty 에서 RPi-7-1로 설정을 해준다
+
+비밀번호 설정
+
+외부 파일을 복사하기 위해서는 WinSCP 가 필요하다.putty에는 없다.
+
+인스톨레이션 페키지 설치
+
+winSCP에서  putty 로 바로 가기 위한 방법
+
+에디터 vi 아니면 nano
+
+os 부팅할때 실행되는것 
+
+~물결은 현재 홈이다.
+
+ls 
+ls-l
+ls-al
+
+숨길파일 확인하기 
+옵션가서 패널들어가서 확인
+
+현재 기본홈은 home/pi 가 기본 타입이다.
+cd.. 은 전 디렉토리로 이동 
+
+저장 ctrl+o
+
+ctrl+x
+
+
+/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre/lib
+
+ext 에 외부 라이브러리를 집어 넣어야 한다.
+(.jar 파일을 갖다 넣는다)
+arm 버전용 라이브러리를 집어 넣는다.
+자바만 실행시키면 좋지만 운영체제가 갖고 있는 API 를 사용하기 위해서는 관련라이브러리가 따로 있어야한다.
+운영체제 별로 cpu 로 arm 용 라이브러리가 있어야 한다.
+
+addplatform 해서 RPI 이름과 호스트 이름 비밀번호 설정 
+JRE path 는 라즈베리 파이 경로
+/usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/jre 라즈베리 JRE path 까지 간다. 경로 붙여준다
+/home/pi/NetBeansProjects/ 여기에다가 작업을 한다.
+
+Exec prefix 에 sudo 라고 고정을 시키면은 명령어 시킬때 sudo 가 붙어서 실행이 된다.
+
+프로그램적 방법
+
+프로젝트 생성하고 나서 플랫폼 변경 가능
+
+sudo apt-cache show tomcat8
+
+sudo apt-cache search tomcat 
+톰캣이 있나 먼저 확인을 해라
+
+설치 할때 쓰는 명령어
+sudo apt-get install tomcat8
+
+더설치할거냐구 물어보는 것은 의존성으로 인해서 다른 패키지 까지 설치를 해야 한다.
+
+다운로드만 받는게 아니라 설치까지 완성이 된다.
+
+설치된 패키지 목록 보기
+dpkg -l 을 치면은 설치된 패키지의 목록을 볼 수 있다.
+
+톰캣이 들어간 것을 따로 볼 수 있게 해라 
+dpkg -l | grep tomcat
+
+삭제 하는 방법
+sudo apt-get remove 패키지 이름
+sudo apt-get purge 패키지 이름
+
+sudo apt-get purge libtomcat8-java
+
+sudo apt-get upgrade
+업그레이드는 apt/bin 파일을 보고서 확인을 한다. 
+그래서 apt/bin 이 최신상태로 유지 되기 위해서는 update 를 먼저 해준다.
+
+자바 FX 실행 할 수 있는 환경  runtimeEnviroment
+
+자바 FX임베디드 SDK 설치 한다.
+압축을 풀어 준다. WIN SPC 를 열어서 /home/pi/Download 로 복사한다.
+
+add Java 플랫폼을 해서 Remote java SE 를 한다.
+
+1.라즈베리 설치 
+2처음에 리더기로 굽기 라즈베리 Win32DiskImage
+ 라즈베리 파일 굽는다.
+3.putty 를 설치 한다.
+
