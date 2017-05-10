@@ -19,8 +19,10 @@ public class AppMain extends Application{
         
         Scene scene=new Scene(parent); //HBox를 받는거랑 같음(Parent 상속받으니까)/Hbox로 바꿔도됨
         primaryStage.setScene(scene);
+		
         primaryStage.setTitle("Title");
-        
+        primaryStage.setFullScreen(true);
+		primaryStage.setFullScreenExitHint("");
         primaryStage.setOnCloseRequest(event ->{
             System.out.println("Closd");
         });
