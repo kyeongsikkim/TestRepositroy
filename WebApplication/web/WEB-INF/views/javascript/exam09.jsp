@@ -14,7 +14,7 @@
 			var v1="100.5";
 			var v2=parseFloat(v1)+200;
 			console.log(v2);
-			
+			//숫자를 문자로 바꾸는것
 			var v4=String(10)+"점";
 			var v4=10+"점";
 		</script>

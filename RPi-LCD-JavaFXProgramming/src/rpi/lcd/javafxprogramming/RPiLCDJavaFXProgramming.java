@@ -22,8 +22,7 @@ public class RPiLCDJavaFXProgramming extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("root.fxml"));
 		
 		Scene scene = new Scene(root);
-		stage.setFullScreen(true);
-		stage.setFullScreenExitHint("");
+	
 		stage.setScene(scene);
 		stage.show();
 	}

@@ -2,6 +2,7 @@
     Document   : exam01
     Created on : 2017. 4. 26, 오전 9:11:20
     Author     : Administrator
+	인라인 방식
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -11,7 +11,7 @@
         <meta charset=UTF-8">
         <title>JSP Page</title>
 		<script>
-			//스크립트는 메소드의 갯수를 꼭 맞추지 않아도 된다.
+			//스크립트는 메소드의 갯수를 꼭 맞추지 않아도 된다.리턴 타입이 없다 var 를 안붙여줘도 된다.
 			function totalSum(from,to){
 				
 				if(to ==undefined){

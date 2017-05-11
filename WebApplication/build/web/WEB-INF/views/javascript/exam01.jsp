@@ -2,6 +2,7 @@
     Document   : exam01
     Created on : 2017. 4. 26, 오전 10:41:45
     Author     : Administrator
+	자바 스크립트는 w3school javascript 를 가서 도큐먼트를 본다.
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -25,17 +26,17 @@
 			console.log(v4);
 			console.log("v4: " + v4 +" " + typeof(v4));
 			
-			var v5={mid:"white", mname:"홍길동", mage:30};  
+			var v5={mid:"white", mname:"홍길동", mage:30};  //객체
 			console.log(v5);
 			console.log("v5: " + v5 +" " + typeof(v5));
 			
-			var v6=new Date();
+			var v6=new Date();//날짜 객체
 			console.log("v6: " + v6 +" " + typeof(v6));
 			
 			var v7=null;
 			console.log("v7: " + v7 +" " + typeof(v7));
 			
-			var v8=function(){
+			var v8=function(){//함수
 			console.log("function() 실행")};
 			console.log("v8: " + v8 +" " + typeof(v8));
 			

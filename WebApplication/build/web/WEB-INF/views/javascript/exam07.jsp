@@ -11,6 +11,7 @@
 
 		<script src="/WebApplication/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 		<script>
+			//배열 자바스크립는 배열의 길이가 가변적이다. 
 			var arr1 = ["saab", "Volvo", "BMW"];
 			console.log(arr1[0]);
 			console.log(arr1.length);
@@ -21,6 +22,7 @@
 				console.log(arr2[i]);
 			}
 			var arr3 = ["Banana", "Orange", "Apple", "Mango"];
+			//배열에 집어 넣을 때는 push 
 			arr3.push("Lemon");
 			for (var i = 0; i < arr3.length; i++) {
 				console.log(arr3[i]);

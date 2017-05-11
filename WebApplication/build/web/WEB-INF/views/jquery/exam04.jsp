@@ -13,7 +13,7 @@
 		<script>
 			//url 에 있는 데이터를 다받고 나면은 success 를 실행한다.받은 데이터는 매개변수 값으로 function 에 들어간다.
 			//못찾을 경우 경로가 잘 못 되었을 수도 있다.
-			//ajax 부분
+			//ajax 부분 전체화면에서 일부분만 변경해줄때 사용 할 수 있다.
 			function handleBtn1() {
 				$.ajax({
 					url: "/WebApplication/jquery/exam04_html_fragment",

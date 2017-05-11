@@ -71,14 +71,14 @@ img1은 jquery 도큐먼트를 찾아본다.
 var div=$("#div");
 div.메소드를 써라 이런 뜻이다.
 
-jquery.메소드()-> $.메소드를 써라 이런 뜻이다.
+.jquery()-> $.메소드를 써라 이런 뜻이다.
 약식표현으로 표현 해라 
 
-ajax
-는 URL 과 setting 을 같이 넣던지
+ajax 는 URL 과 setting 을 같이 넣던지
 URL 은 String 타입이다
 setting 만 넣던가 두가지 경우가 있다.
-setting 는 객체이다. 자바스크립트에서 객체는 {}로 표시를 한다.
+setting 는 객체이다. 
+자바스크립트에서 객체는 {}로 표시를 한다.
 
 
 

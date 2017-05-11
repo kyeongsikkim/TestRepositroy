@@ -14,6 +14,7 @@
 			function handleBtn1(){
 				//var img=window.document.querySelector("img");//이미지 객체를 찾아서 이미지 객체의 번지를 리턴해라 이미지 객체를 찾아서 접근이 가능하다.//첫번째 찾는 거를 변경한다.
 				//img.src="/WebApplication/resources/image/photo03.jpg";
+				//찾을 때는 w3school 에서 찾아서 확인하다.
 			var imgArray=window.document.querySelectorAll("img");//위에거는 처음 찾은 것만 리턴하지만 배열로 찾은 것은 모든이미지를 찾아서 배열로 저장한다. 태그에는 id 랑 클래스를 집어넣을 수 있다.DHML 다이나믹 
 			for(var i=0;i<imgArray.length;i++){
 				imgArray[i].src="/WebApplication/resources/image/photo05.jpg";

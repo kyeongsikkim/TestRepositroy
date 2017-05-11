@@ -13,13 +13,13 @@
 		<script>
 			//전역변수
 			var v1="A";
-			
+		
 			function fun1(){
 				//로컬변수
 				var v2="B";
 				if(true){
 					var v3="C"
-					v4 ="D";  //전역변수 
+					v4 ="D";  // 함수에서 var 없이 사용 되는 것은 전역변수 
 				}
 				console.log(v1);
 				console.log(v2);

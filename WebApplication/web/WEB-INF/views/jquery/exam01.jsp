@@ -11,10 +11,11 @@
 
 		<script src="/WebApplication/resources/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 		<script>
+			//jquery를 사용하기 위해서는 jquery load 해야 한다. 위에 script 참조 ///////////////부트스트랩 3.3.7 이하버전을 사용하려면 jquery 는 1점대와 2점대 버전을 사용 할 수 없다.
 			//함수만 선언되어있기 때문에 다해석하고 나서 버튼을 눌렀을 때 실행되는거기때문에 이미 이미지를 찾았기 때문에 업로드가 가능한것이다.
 			function handleBtn1(){
 			
-			var imgArray=$("img");//이미지라는 태그를 다 찾아라 jquery 객체의 리턴값이다.
+			var imgArray=$("img");//이미지라는 태그를 다 찾아라 jquery 객체를 참조해서 리턴값이다.jquery() 대신에$표시 쓴다 도큐먼트 확인 
 			imgArray.attr("src","/WebApplication/resources/image/photo05.jpg");//arrt 이라는 매소드는 전체 배열에서 객체를 하나씩 끄집어내서 src 속성을 뒤에 값으로 변경시켜라
 			}
 				function handleBtn2(){

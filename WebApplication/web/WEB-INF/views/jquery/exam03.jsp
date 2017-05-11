@@ -15,6 +15,7 @@
 			$("#div1").html("<p> 변경된 내용</p>");
 			//div.xxx(); 이것도 가능
 			$("#div2").append("<p> 변경된 내용</p>");
+			//html 과 append 의 차이점
 		}
 		function changeCSS(){
 			$("#div3").css("background-color","#ffff00");//
