@@ -37,7 +37,7 @@ public class RootController implements Initializable {
 	@FXML
 	private StackPane stack;
 	
-	static status sta=status.getInstacne();
+	static Status sta=Status.getInstacne();
 
 	/**
 	 * Initializes the controller class.

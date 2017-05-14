@@ -8,8 +8,6 @@ package setting;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -31,8 +29,10 @@ import static setting.RootController.sta;
  *
  * @author KIM
  */
-public class Volume1Controller implements Initializable {
+public class Volume2Controller implements Initializable {
 
+	@FXML
+	private StackPane stack;
 	@FXML
 	private Button btnAccept;
 	@FXML
@@ -53,44 +53,43 @@ public class Volume1Controller implements Initializable {
 	private TextField txtMusic;
 	@FXML
 	private Button btnRmusic;
-	@FXML
-	private StackPane stack;
 
-    private double slidersoundValue1=sta.getSliderCall1();
-	private double slidersoundValue2=sta.getSliderMusic1();
+    private double slidersoundValue1=sta.getSliderCall2();
+	private double slidersoundValue2=sta.getSliderMusic2();
 	
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		if (sta.getTxtMusic1() != null) {
-			txtMusic.setText(sta.getTxtMusic1());
+		if (sta.getTxtMusic2() != null) {
+			txtMusic.setText(sta.getTxtMusic2());
 		}
-		if(sta.getSliderCall1()==0)
+		if(sta.getSliderCall2()==0)
 		{
-			img1.setImage(new Image(sta.getImag11()));
+			img1.setImage(new Image(sta.getImag12()));
 		}
-		if(sta.getSliderMusic1()==0){
-			img2.setImage(new Image(sta.getImg21()));
+		if(sta.getSliderMusic2()==0){
+			img2.setImage(new Image(sta.getImg22()));
 		}
 		
-		btnRkind.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				try {
-					stack.getChildren().remove(0);
-					Parent parent = FXMLLoader.load(getClass().getResource("volume2.fxml"));
-					stack.getChildren().add(parent);		
-				} catch (IOException ex) {
-					System.out.print("하하");
-				}
-			}
-		});
-		btnLkind.setOnAction(new EventHandler<ActionEvent>() {
+//		btnRkind.setOnAction(new EventHandler<ActionEvent>() {
+//			@Override
+//			public void handle(ActionEvent event) {
+//				try {
+//					stack.getChildren().remove(0);
+//					Parent parent = FXMLLoader.load(getClass().getResource("volume2.fxml"));
+//					stack.getChildren().add(parent);		
+//				} catch (IOException ex) {
+//					System.out.print("하하");
+//				}
+//			}
+//		});
+			
+			btnLkind.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 					try {	
 				    stack.getChildren().remove(0);
-					Parent parent= FXMLLoader.load(getClass().getResource("volume.fxml"));
+					Parent parent= FXMLLoader.load(getClass().getResource("volume1.fxml"));
 					stack.getChildren().add(parent);
 				} catch (IOException ex) {
 						System.out.print("하하");
@@ -99,18 +98,18 @@ public class Volume1Controller implements Initializable {
 			}
 		});
 		
-		sliderCall.setValue(sta.getSliderCall1());
+		sliderCall.setValue(sta.getSliderCall2());
 		sliderCall.valueProperty().addListener(new ChangeListener<Number>() {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 
 				if ((sliderCall.getValue()) == 0) {
 					Image setImage = new Image(getClass().getResource("images/speakerremove.png").toString());
-					sta.setImag11(getClass().getResource("images/speakerremove.png").toString());
+					sta.setImag12(getClass().getResource("images/speakerremove.png").toString());
 					img1.setImage(setImage);
 				} else {
 					Image setImage = new Image(getClass().getResource("images/speaker.png").toString());
-					sta.setImag11(getClass().getResource("images/speaker.png").toString());
+					sta.setImag12(getClass().getResource("images/speaker.png").toString());
 					img1.setImage(setImage);
 				}
 				    slidersoundValue1=newValue.doubleValue();
@@ -119,18 +118,18 @@ public class Volume1Controller implements Initializable {
 			}
 
 		});
-		sliderMusic.setValue(sta.getSliderMusic1());
+		sliderMusic.setValue(sta.getSliderMusic2());
 		sliderMusic.valueProperty().addListener(new ChangeListener<Number>() {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 
 				if ((sliderMusic.getValue()) == 0) {
 					Image setImage = new Image(getClass().getResource("images/speakerremove.png").toString());
-					sta.setImg21(getClass().getResource("images/speakerremove.png").toString());
+					sta.setImg22(getClass().getResource("images/speakerremove.png").toString());
 					img2.setImage(setImage);
 				} else {
 					Image setImage = new Image(getClass().getResource("images/speaker.png").toString());
-					sta.setImg21(getClass().getResource("images/speaker.png").toString());
+					sta.setImg22(getClass().getResource("images/speaker.png").toString());
 					img2.setImage(setImage);
 				}
 				 slidersoundValue2=newValue.doubleValue();	
@@ -164,15 +163,14 @@ public class Volume1Controller implements Initializable {
 				}
 			}
 		});
-		
 		btnAccept.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
 				sta.setTxtMusic1(txtMusic.getText());
 				System.out.println(slidersoundValue1);
 				System.out.println(slidersoundValue2);
-				sta.setSliderCall1(slidersoundValue1);
-				sta.setSliderMusic1(slidersoundValue2);
+				sta.setSliderCall2(slidersoundValue1);
+				sta.setSliderMusic2(slidersoundValue2);
 				}
 		});
 		
