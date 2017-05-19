@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- @어노테이션을 이용해서 개발할 수 있도록 설정 어노테이션 붙여서 개발 하겠다-->
+	<mvc:annotation-driven/>
+	
+	<!--어디클래스를 확인해서 어노테이션이 있는지 확인 해야 한다 어디를 확인해야하는지/yourcompany
+	에 클래스 만들고 어노테이션 사용해도 안먹힌다.  어떤 패키지부터 @어노테이션을 찾아서 사용할건지 설정-->
+	<context:component-scan base-package="com.mycompany.myapp"/>
+	<!-- 관리객체로 마들놈 이다 bean 이 붙으면 -->	
+	
+	<!-- <property name="prefix" value="/WEB-INF/views"/>
+	<property name="suffix" value=".jsp"/> -->
+	<!-- 스프링 관리 객체로 집어 넣을 수 있다.어노테이션을 사용 할 수 있지만 안넣고 사용을 할 수도 있다. 기본적으로 객체를 먼저 만들어 낸다.-->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+	p:prefix="/WEB-INF/views/"
+	p:suffix=".jsp"/>
+	<!--  P:prefix 는 set 의 이름이다.외부에서 값을 주입 시켜준다 set 를 통해서 set 주입 이라고 한다.p라는 namespace 를 통해서-->
+	
+		  
+</beans>
