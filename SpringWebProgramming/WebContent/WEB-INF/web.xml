@@ -43,5 +43,6 @@
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
+		<!-- http://localhost:8080/WebApplication /앞에 생략 되어 있다. 디스패처 서블렛이 실행이 된다. -->
 	</servlet-mapping>
 </web-app>

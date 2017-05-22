@@ -131,14 +131,14 @@ public class LCD1602 {
 	public static void main(String[] args) throws Exception {
 		LCD1602 lcd1602 = new LCD1602(0x27);
 
-		lcd1602.write(0, 0, "Current Time");
+		lcd1602.write(0, 0, "HAHAHAHAHAHAHAHAHAHAHHAHAHAHAHAHAHAHAHAHAHAH");
 		SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
-		for (int i = 0; i < 10; i++) {
+		for (int i = 0; i < 10000; i++) {
 			lcd1602.write(1, 0, formatter.format(new Date()));
 			Thread.sleep(1000);
 		}
 
-		displayIPaddress(lcd1602);
+		//displayIPaddress(lcd1602);
 		Thread.sleep(5000);
 
 		//lcd1602.clear();
