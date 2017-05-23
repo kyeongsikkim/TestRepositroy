@@ -14,7 +14,7 @@ private double minStep;
 private double maxStep;
 
 public SG90Servo(Pin pinNo){
-	this(pinNo,8,27);
+	this(pinNo,8,27);//8에서 27까지만 줘야한다는 특징 
 }
 
 public SG90Servo(Pin pinNo,double minStep,double maxStep){

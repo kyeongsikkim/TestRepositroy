@@ -2,7 +2,7 @@ package com.mycompany.myapp.dao;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Exam10DaoImpl implements Exam10Dao{
+public class Exam10Dao1Impl implements Exam10Dao1{
 	
 	@Override
 	public void insert(){

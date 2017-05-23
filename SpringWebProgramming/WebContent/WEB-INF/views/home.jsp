@@ -78,5 +78,9 @@
 		
 		<h4>파일 업로드</h4>
 		<a href="form/exam02"  class="btn btn-success">회원가입 양식 요청</a>
+		
+		<h4>의존성 주입</h4>
+		<a href="di/exam01" class="btn btn-success">회원가입</a>
+		<a href="di/exam02"  class="btn btn-success">로그인</a>
 	</body>
 </html>

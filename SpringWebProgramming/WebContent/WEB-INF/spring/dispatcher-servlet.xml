@@ -23,11 +23,30 @@
 	<property name="suffix" value=".jsp"/> -->
 	<!-- 스프링 관리 객체로 집어 넣을 수 있다.어노테이션을 사용 할 수 있지만 안넣고 사용을 할 수도 있다. 기본적으로 객체를 먼저 만들어 낸다.서블렛이 controller 한테 받아서 forword 할지
 	정해준다.세터 주입 -->
+	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 	p:prefix="/WEB-INF/views/"
 	p:suffix=".jsp"/>
 	<!--  P:prefix 는 set 의 이름이다.외부에서 값을 주입 시켜준다 set 를 통해서 set 주입 이라고 한다.p라는 namespace 를 통해서-->
-	<!-- id 는 이름이다.특별한 이름으로 등록해야 되는 경우가 있다. -->
+	<!-- id 는 이름이다.특별한 이름으로 등록해야 되는 경우가 있다. 예약된 이름이다.-->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
-		  
+	
+	
+	<!-- 고전적인 의존성 주입하는 방법이다. 스프링이 객체를 관리해 주는 것이다.구현객체를 주입시켜준다. -->
+	<bean id="exam10Dao2" class="com.mycompany.myapp.dao.Exam10Dao2Impl"/> 
+		
+		
+		<!-- 이럴 경우는 service4에서 주입된 DAO 가 아직 setter 로 값을 받지 않았기 때문에 이렇게 객체만 생성했을 경우는 문제가 발생한다.setter 의 값을 넣어준다. 
+		setter 의 경우는 set 을 빼고서 소문자로 표현을 한다.value 가 올지 ref 가 올지 정하는 것은 set 매개 변수나 생성자 매개변수가 어떤 타입인지 확인을 해야 한다.
+		Dao2 가 현재 의존성 주입이 안되있기 때문에 set 으로 해준다.-->	
+	<!-- <bean id="exam10Service4" class="com.mycompany.myapp.service.Exam10Service4Impl"
+	    p:exam10Dao-ref="exam10Dao2"/>
+	 -->
+	
+	<bean id="exam10Service4" class="com.mycompany.myapp.service.Exam10Service4Impl">
+	  <property name="exam10Dao" ref="exam10Dao2"/> 
+	  </bean>
+	
+	<!-- 생성자 주입 -->
+
 </beans>
