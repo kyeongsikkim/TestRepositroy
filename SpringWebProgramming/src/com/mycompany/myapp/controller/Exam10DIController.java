@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mycompany.myapp.service.Exam10Service1;
 import com.mycompany.myapp.service.Exam10Service2;
-import com.mycompany.myapp.service.Exam10Service3;	
+import com.mycompany.myapp.service.Exam10Service3;
+import com.mycompany.myapp.service.Exam10Service6;	
 
 @Controller
 public class Exam10DIController{
@@ -17,7 +18,8 @@ public class Exam10DIController{
 	private Exam10Service2 exam10Service2;	
 	@Autowired
 	private Exam10Service3 exam10Service3;
-
+	@Autowired
+	private Exam10Service6 exam10Service6;
 
 	@RequestMapping("/di/exam01")
 	public String exam01(){
@@ -25,6 +27,7 @@ public class Exam10DIController{
 		exam10Service1.join();
 		exam10Service2.join();
 		exam10Service3.join();
+		exam10Service6.join();
 		return "di/exam01";
 	}
 	
@@ -34,6 +37,7 @@ public class Exam10DIController{
 		exam10Service1.login();
 		exam10Service2.login();
 		exam10Service3.login();
+		exam10Service6.login();
 		return "di/exam02";
 	}
 }

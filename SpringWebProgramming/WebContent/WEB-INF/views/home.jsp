@@ -82,5 +82,9 @@
 		<h4>의존성 주입</h4>
 		<a href="di/exam01" class="btn btn-success">회원가입</a>
 		<a href="di/exam02"  class="btn btn-success">로그인</a>
+		
+		<h4>리다이렉트 request mapping 에 맞춰서 가는 것이다.</h4>
+		<a href="redirect/list" class="btn btn-success">리스트 목록</a>
+		<a href="redirect/write" class="btn btn-success">게시물 쓰기</a>
 	</body>
 </html>

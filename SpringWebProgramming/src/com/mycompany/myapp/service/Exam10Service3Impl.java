@@ -11,7 +11,7 @@ public class Exam10Service3Impl implements Exam10Service3{//이객체가 관리�
 	
 	private Exam10Dao1 exam10Dao;	
 	
-	@Autowired	//생성자 주입 이다. service 를 객체구현을 생성할때 의존성 주입을 만들어 준다.
+	@Autowired	//생성자 주입 이다. service 를 객체구현을 생성할때 의존성 주입을 만들어 준다.AutoWired 가 없을 경우 기본 생성자로 만들어야 하는데 안만들어준다.
 	public Exam10Service3Impl(Exam10Dao1 exam10Dao){
 		this.exam10Dao=exam10Dao;
 		//추가적인 코드가 가능하다.

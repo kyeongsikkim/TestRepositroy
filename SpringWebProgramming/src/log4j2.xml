@@ -16,7 +16,7 @@
     <Logger name="com.mycompany.myapp.controller" level="INFO">
       <AppenderRef ref="Console"/>
     </Logger>
-    <Root level="info">
+    <Root level="ERROR">
       <AppenderRef ref="Console"/>
     </Root>
   </Loggers>

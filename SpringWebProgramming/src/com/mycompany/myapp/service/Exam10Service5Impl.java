@@ -3,14 +3,14 @@ package com.mycompany.myapp.service;
 import com.mycompany.myapp.dao.Exam10Dao2;
 
 
-public class Exam10Service5Impl implements Exam10Service4{//이객체가 관리되고 있는 것이다.
+public class Exam10Service5Impl implements Exam10Service5{//이객체가 관리되고 있는 것이다.
 
 	
 	private Exam10Dao2 exam10Dao;	//주입이 될려면 setter 로 받아야 한다 외부에서 	
-	public void setExam10Dao(Exam10Dao2 exam10Dao) {
-		this.exam10Dao = exam10Dao;
+	public Exam10Service5Impl(Exam10Dao2 exam10Dao){
+		this.exam10Dao=exam10Dao;
+		
 	}
-
 
 	@Override
 	public void join(){
