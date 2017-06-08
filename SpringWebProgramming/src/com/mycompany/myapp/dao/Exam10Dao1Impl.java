@@ -1,16 +1,14 @@
 package com.mycompany.myapp.dao;
+
 import org.springframework.stereotype.Component;
 
 @Component
-public class Exam10Dao1Impl implements Exam10Dao1{
-	
-	@Override
+public class Exam10Dao1Impl implements Exam10Dao1 {
 	public void insert(){
-		System.out.println("insert() 실행 ! ");
+		System.out.println("Exam10Dao1Impl - insert");
 	}
 	
-	@Override
 	public void select(){
-		System.out.println("select() 실행 ! ");
+		System.out.println("Exam10Dao1Impl - select");
 	}
 }

@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-	
-	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+<!-- connection pool(Data source)설정 -->
+<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+<property name="driverClass" value="oracle.jdbc.OracleDriver"></property>
+<property name="jdbcUrl" value="jdbc:oracle:thin:@localhohst:1521:orcl;"/>
+<property name="user" value="iotuser"/>
+<property name="password" value="iot12345"/>
+<property name="maxPoolSize" value="1"/><!-- pool 사이즈 -->
+<property name="initialPoolSize" value="1"/><!-- pool 처음 생성되고 처음으로 몇개의 connection 을 만들지 -->
+<property name="acquireIncrement" value="1"/><!-- 요청이 들어올 때 몇개 씩 만들지 -->
+<property name="minPoolSize" value="1"/><!-- 사용 요청이 적을 때 여러개를 닫고서 몇개 까지 남겨 놓을겨 몇개까지 줄일지  -->
+<!--  <property name="maxIdleTime" /> 커넥션이 몇초동안 놀고 있으면 빼버리는것 -->
+</bean>
+<!-- setter 주입과 생성자 주입만 가능하다.p 태그 아니면 property 로 사용을 할 수 있다 setter 주입의 경우 -->
+<!-- jdbcTemplate 설정 -->
+<bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+<property name="dataSource" ref="dataSource"/>
+<!-- value는 정수나 문자를 넣을 때사용한다. 객체는ref 로 -->
+</bean>
 </beans>

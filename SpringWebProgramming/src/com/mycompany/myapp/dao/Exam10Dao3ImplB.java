@@ -3,17 +3,16 @@ package com.mycompany.myapp.dao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
 @Component
-public class Exam10Dao3ImplB implements Exam10Dao3{
-	//상수는 다 대문자로 쓴다.
-	private static final Logger LOGGER=LoggerFactory.getLogger(Exam10Dao3ImplB.class);
-	@Override
+public class Exam10Dao3ImplB implements Exam10Dao3 {
+	private static final Logger l = LoggerFactory.getLogger(Exam10Dao3ImplB.class); // logger 등록, static final이어도 private이면 변수명을 소문자로 쓰기도 한다.
+	
 	public void insert(){
-		LOGGER.info("회원 가입 처리");
+		l.info("회원 가입 - B");
 	}
 	
-	@Override
 	public void select(){
-		LOGGER.info("회원검색");
+		l.info("회원 처리 - B");
 	}
 }

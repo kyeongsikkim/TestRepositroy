@@ -7,27 +7,23 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
-
-	<!-- @어노테이션을 이용해서 개발할 수 있도록 설정 어노테이션 붙여서 개발 하겠다-->
+	<!-- @어노테이션을 이용해서 개발할 수 있도록 설정  -->
 	<mvc:annotation-driven/>
 	
-	<!--어디클래스를 확인해서 어노테이션이 있는지 확인 해야 한다 어디를 확인해야하는지/yourcompany
-	에 클래스 만들고 어노테이션 사용해도 안먹힌다.  어떤 패키지부터 @어노테이션을 찾아서 사용할건지 설정-->
-	<context:component-scan base-package="com.mycompany.myapp"/>
-	<!-- 관리객체로 만들거다 bean 이 붙으면 -->	
 	
-	<!-- controller 가 필요없는 정적 리소스 폴더 설정  mapping 경로만 맞으면 resources 의 위치로 이동해라 **모든경로를 나타낸다 *하나만 있는경우는 resources 바로 밑에 파일만 이야기 
-	** 인경우는 밑에 밑에 모든 파일을 표현한다.-->
+	<!-- 어떤 패키지부터 @어노테이션을 찾아서 사용할 건지 설정 -->
+	<context:component-scan base-package="com.mycompany.myapp"/>
+	
+	<!-- Controller가 필요없는 정적 리소스 폴더 설정  -->
 	<mvc:resources mapping="/resources/**" location="/resources/"/>
-	<!-- <property name="prefix" value="/WEB-INF/views"/>
-	<property name="suffix" value=".jsp"/> -->
-	<!-- 스프링 관리 객체로 집어 넣을 수 있다.어노테이션을 사용 할 수 있지만 안넣고 사용을 할 수도 있다. 기본적으로 객체를 먼저 만들어 낸다.서블렛이 controller 한테 받아서 forword 할지
-	정해준다.세터 주입 -->
-	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-	p:prefix="/WEB-INF/views/"
-	p:suffix=".jsp"/>
-	<!--  P:prefix 는 set 의 이름이다.외부에서 값을 주입 시켜준다 set 를 통해서 set 주입 이라고 한다.p라는 namespace 를 통해서-->
-	<!-- id 는 이름이다.특별한 이름으로 등록해야 되는 경우가 있다. -->
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
-		  
+	
+	<!-- 스프링 관리 객체로 등록 -->
+	 <bean id="viewResolver"
+	  class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+	  p:prefix="/WEB-INF/views/"
+	  p:suffix=".jsp" />
+	  
+	  <bean id="multipartResolver"
+    	class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
 </beans>

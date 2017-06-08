@@ -26,7 +26,7 @@ public class TrackingSensor {
 		return trackingPin.getState();
 	}
 	public static void main(String[]args) throws IOException{
-		TrackingSensor test=new TrackingSensor(RaspiPin.GPIO_00);
+		TrackingSensor test=new TrackingSensor(RaspiPin.GPIO_26);
 		test.setGpioPinlistenerDigtal(event->{
 		if(event.getState()==PinState.HIGH){
 			System.out.println("black");
