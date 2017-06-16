@@ -44,9 +44,9 @@ public class GasSensor {
 			public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
 				System.out.println("########################"+event.getState());
 				if(event.getState()==PinState.LOW){
-					System.out.println("**********GAS****************");
+					System.out.println("**********가스 발생****************");
 				}else{
-					System.out.println("**********Normal**********");
+					System.out.println("**********정상 가스**********");
 				}
 			}
 	});

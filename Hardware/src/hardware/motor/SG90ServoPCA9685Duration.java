@@ -46,16 +46,12 @@ public class SG90ServoPCA9685Duration {
 		//15가 위에 모토 14 가 밑에 모토
 		SG90ServoPCA9685Duration servo=new SG90ServoPCA9685Duration(pca9685,PCA9685.PWM_11);
 		
-		for(int i=10;i<170;i+=10){
+		for(int i=10;i<=90;i+=10){
 			servo.setAngle(i);
 			Thread.sleep(500);
+			
 		}
-		for(int i=170;i>=10;i-=10){
-			servo.setAngle(i);
-		Thread.sleep(500);
-		}
-	servo.setAngle(90);
-	System.in.read();
+		
 	}
 }
 

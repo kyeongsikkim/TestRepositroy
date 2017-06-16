@@ -46,7 +46,6 @@ public class UltrasonicSensor {
 		//echoPin 이 High 가 될때 까지 체크 
 		while (echoPin.isLow()) {
 			count++;
-			System.out.println("aaaa");
 			if (count > 50000) {
 				return getDistance();
 			}
@@ -54,7 +53,7 @@ public class UltrasonicSensor {
 		//발신 시간을 저장 
 		start = System.nanoTime();
 		count = 0;
-		System.out.println("xxxxx");
+	
 		while (echoPin.isHigh()) {
 			count++;
 			if (count > 50000) {
@@ -62,7 +61,7 @@ public class UltrasonicSensor {
 			}
 		}
 
-		System.out.println("hhhhh");
+	
 		end = System.nanoTime();
 		double seconds = ((end - start) / 1000000000) / 2;
 		//거리

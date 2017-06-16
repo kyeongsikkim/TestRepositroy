@@ -13,6 +13,8 @@ public class CoapResource02Client {
 	//Constructor
 	public CoapResource02Client() {
 		coapClient = new CoapClient();
+		coapClient.useCONs();//default
+		//coapClient.useNONs();non 방식은 응답이 안와도 된다.
 	}
 	
 	//Method
@@ -52,7 +54,7 @@ public class CoapResource02Client {
 		jsonObject.put("angle", angle);
 		String json = jsonObject.toString();
 
-		coapClient.setURI("coap://192.168.3.34/resource02");
+		coapClient.setURI("coap://192.168.3.34/resource02");//비동기 방식은 응답이 올때 까지 할일 하는 것이고 동기방식은 응답이 올때까지 기다리는 것이다.
 		CoapResponse response = coapClient.post(json, MediaTypeRegistry.APPLICATION_JSON);
 		if(response == null) {
 			return get(angle);
@@ -79,6 +81,8 @@ public class CoapResource02Client {
 			String text = client.post(i);
 			System.out.println(i + "각도 거리: " + text);
 		}
+		client.post(90);
+		Thread.sleep(1000);
 		client.shutdown();
 	}
 }

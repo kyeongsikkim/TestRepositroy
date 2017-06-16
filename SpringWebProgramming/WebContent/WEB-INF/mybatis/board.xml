@@ -3,63 +3,61 @@
 <!DOCTYPE mapper 
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper namespace="board"><!-- currval 은 현재값 가장 마지막에 부여된 값이 뭐냐 from dual 은 
-		select 의 뒤에 from 이 와야하는데 문법을 맞추기 위해서 가상 테이블을 적어준다.dual -->
-	<!-- A라는 사랑과 B 라는 사람이 같은 DB 에 연결된 상태에서 둘다 next_val 을 했다.currval 은 현재 마지막 
-		부여된값이 무엇이냐 .currval 은 현재 연결에서의 최종 부여된 값이다. 매개값이 필요하다 파라미터 타입은 이걸 실행 할때 값을 
-		담아서 갈 것이고 -->
+	
+<mapper namespace="board">
 	<insert id="insert" parameterType="com.mycompany.myapp.dto.Exam12Board">
 		<selectKey keyProperty="bno" resultType="int" order="AFTER">
 			select board_bno_seq.currval from dual
 		</selectKey>
-		insert into board
-		(bno, btitle, bcontent, bwriter, bdate, bpassword,
-		bhitcount, boriginalfilename, bsavedfilename, bfilecontent)
-		values
-		(board_bno_seq.nextval, #{btitle}, #{bcontent}, #{bwriter}, sysdate,
-		#{bpassword}, 0, #{boriginalfilename}, #{bsavedfilename},
-		#{bfilecontent})
+		<if test="boriginalfilename != null">
+			insert into board
+			(bno, btitle, bcontent, bwriter, bdate, bpassword, bhitcount, boriginalfilename, bsavedfilename, bfilecontent)
+			values
+			(board_bno_seq.nextval, #{btitle}, #{bcontent}, #{bwriter}, sysdate, #{bpassword}, 0, #{boriginalfilename}, #{bsavedfilename}, #{bfilecontent}) 
+		</if>
+		<if test="boriginalfilename == null">
+			insert into board
+			(bno, btitle, bcontent, bwriter, bdate, bpassword, bhitcount)
+			values
+			(board_bno_seq.nextval, #{btitle}, #{bcontent}, #{bwriter}, sysdate, #{bpassword}, 0) 
+		</if>		
 	</insert>
 	
-	<select id="selectAll" resultType="com.mycompany.myapp.dto.Exam12Board">
-		select bno, btitle, bwriter, bdate, bhitcount from board order by bno desc
-
-	</select>
-	<!-- resulttype 은 결과를 가져와서 담을 객체를 말한다. 디비에 bid 와 bowner 이라는 컬럼이 있는데 board 
-		객체에 bid 와 bowner 이 없을 경우 mapper 이 필요하다. -->
-	<!-- <resultMap id="selectAllResultMap" type="com.mycompany.myapp.dto.Exam12Board">
-		<result column="bid" property="bno"></result>
-		<result column="btitle" property="btitle"></result>
-		<result column="bowner" property="bwriter"></result>
-		<result column="bhitcount" property="bhitcount"></result>
-
+	<select id="selectAll" resultType="com.mycompany.myapp.dto.Exam12Board" >
+		select bno, btitle, bwriter, bdate, bhitcount  from board  order by bno desc
+	</select>	
+	<!-- 
+	<resultMap id="selectAllResultMap" type="com.mycompany.myapp.dto.Exam12Board">
+		<result column="bid" property="bno"/>
+		<result column="bowner" property="bwriter"/>
 	</resultMap>
-	이름이 같을때는 상관이 없지만 디비와 객체의 필드 이름이 다를 경우는 맵을 시켜준다. 밑에는 가정 시켜준거다. order 은 실제 컬럼이름을 낸다. 데이터 베이스 이름을 바꿔서 가능하다.
+	
 	<select id="selectAll" resultType="com.mycompany.myapp.dto.Exam12Board" resultMap="selectAllResultMap">
-		select bno as bid, btitle,
-		bwriter, bdate, bhitcount from board order by bno desc
-
-	</select> -->
-	<!-- parameterType 는 하나만 전달 할 수 있어서 여러개의 값을 전달할때는 map으로 전달을 한다. -->
-	<!-- 맵타입은 키와 value 값  -->
-	<select id="selectByPage" parameterType="map" resultType="com.mycompany.myapp.dto.Exam12Board">
-	select * from (select rownum as r, bno, btitle, bwriter, bdate, bhitcount 
-	from( 
-			select bno, btitle, bwriter, bdate, bhitcount from board order by bno desc 
-		 ) 
-	 where rownum &lt;=#{endNum}<!--<는 태그 값이라서 못쓴다.문자 참조를 이용해야 한다. 문자 참조는 &이름; &#xxx; 이렇게 두가지 방법으로 사용이 가능하다. 키값을 넣어준다. less than &lt;--> 
-	) 
-	where r&gt;=#{startNum} 
+		select bno as bid, btitle, bwriter as bowner, bdate, bhitcount  from board  order by bno desc
+	</select>
+	-->
+	
+	<select id="selectByPage" 
+				parameterType="map"
+				resultType="com.mycompany.myapp.dto.Exam12Board">
+		select * 
+		from (
+			select rownum as r, bno, btitle, bwriter, bdate, bhitcount
+			from (
+				select bno, btitle, bwriter, bdate, bhitcount from board order by bno desc
+			) 
+			where rownum&lt;=#{endNum}
+		)
+		where r&gt;=#{startNum}
 	</select>
 	
 	<select id="countAll" resultType="int">
-		select count(*) from board
+		select count(*) from board 
 	</select>
 	
-	
-	<!-- 파라미터 타입 두개 이상 보낼때는 map 으로 해서 보낸다.아무값이나 넣어도 들어간다. bno=#{ff} -->
-	<select id="selectByBno" parameterType="int" resultType="com.mycompany.myapp.dto.Exam12Board" >
+	<select id="selectByBno" 
+		parameterType="int"
+		resultType="com.mycompany.myapp.dto.Exam12Board">
 		select * from board where bno=#{bno}
 	</select>
 	
@@ -68,12 +66,21 @@
 	</update>
 	
 	<update id="update" parameterType="com.mycompany.myapp.dto.Exam12Board">
-	<if test="boriginalfilename!=null">
-	update board set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=sysdate, boriginalfilename=#{boriginalfilename}, bsavedfilename=#{bsavedfilename}, bfilecontent=#{bfilecontent}  where bno=#{bno}
-	</if>
-	<if test="boriginalfilename==null">
-	update board set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=sysdate where bno=#{bno}
-	</if>
+		<if test="boriginalfilename != null">
+			update board set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=sysdate, boriginalfilename=#{boriginalfilename}, bsavedfilename=#{bsavedfilename}, bfilecontent=#{bfilecontent}  where bno=#{bno}
+		</if>
+		<if test="boriginalfilename == null">
+			update board set btitle=#{btitle}, bcontent=#{bcontent}, bpassword=#{bpassword}, bdate=sysdate  where bno=#{bno}
+		</if>
 	</update>
 </mapper>
+
+
+
+
+
+
+
+
+
 
