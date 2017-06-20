@@ -86,7 +86,7 @@ public class UltrasonicSensor {
 
 //메소드
 	public static void main(String[] args) throws Exception {
-		UltrasonicSensor test = new UltrasonicSensor(RaspiPin.GPIO_01, RaspiPin.GPIO_00);
+		UltrasonicSensor test = new UltrasonicSensor(RaspiPin.GPIO_28, RaspiPin.GPIO_29);
 		while (true) {
 
 			Thread.sleep(1000);

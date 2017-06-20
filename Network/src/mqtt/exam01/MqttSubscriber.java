@@ -113,11 +113,11 @@ public class MqttSubscriber {
 	
 	public static void main(String[] args) throws Exception {
 		MqttSubscriber subscriber = new MqttSubscriber();
-		//구독자로 신청
+		//구독자로 신청 
 		subscriber.subscribe();
 		System.out.println("start subscriber....");
 		
-		//프로그램이 종료되지 않게 멈춤
+		//프로그램이 종료되지 않게 멈춤 언제 메세지가 도착 할지 모른다. 그래서 read 로 대기 하고 있는다.
 		System.out.println("press any key to quit");
 		System.in.read();
 		

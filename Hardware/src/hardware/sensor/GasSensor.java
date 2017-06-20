@@ -32,32 +32,32 @@ public class GasSensor {
 	}
 	
 	public static void main(String[]args) throws Exception{
-		PCF8591 pcf8591=new PCF8591(0x48,PCF8591.AIN0);
-		GasSensor test=new GasSensor(pcf8591,RaspiPin.GPIO_00);
+		PCF8591 pcf8591=new PCF8591(0x48,PCF8591.AIN2);
+		GasSensor test=new GasSensor(pcf8591,RaspiPin.GPIO_23);
 		//방법1:digital 핀의 상태를 이용하는 하는방법
 	
 		//	test.setGpioPinListenerDigital(event->{
 		//	
 		//	});
-		test.setGpioPinListenerDigital(new GpioPinListenerDigital() {
-			@Override
-			public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
-				System.out.println("########################"+event.getState());
-				if(event.getState()==PinState.LOW){
-					System.out.println("**********가스 발생****************");
-				}else{
-					System.out.println("**********정상 가스**********");
-				}
-			}
-	});
+//		test.setGpioPinListenerDigital(new GpioPinListenerDigital() {
+//			@Override
+//			public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
+//				System.out.println("########################"+event.getState());
+//				if(event.getState()==PinState.LOW){
+//					System.out.println("**********가스 발생****************");
+//				}else{
+//					System.out.println("**********정상 가스**********");
+//				}
+//			}
+//	});
 
 		while(true){
 			//아날로그값
 			double value=test.getValue();
-			if(value<100){
-				//analog 신호 위치
-			}
-			
+//			if(value<100){
+//				//analog 신호 위치
+//			}
+//			
 			System.out.println(value);
 			Thread.sleep(1000);
 		}
