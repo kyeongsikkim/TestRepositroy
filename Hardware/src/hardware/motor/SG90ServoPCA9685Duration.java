@@ -46,20 +46,19 @@ public class SG90ServoPCA9685Duration {
 	public static void main(String[] args) throws Exception {
 		PCA9685 pca9685 = PCA9685.getInstance();
 		//15가 위에 모토 14 가 밑에 모토 11 이 거리 측정 센서
-		SG90ServoPCA9685Duration servo = new SG90ServoPCA9685Duration(pca9685, PCA9685.PWM_11);
+		SG90ServoPCA9685Duration servo = new SG90ServoPCA9685Duration(pca9685, PCA9685.PWM_15);
 	
-		for(int i=10;i<170;i+=10){
-			servo.setAngle(i);
-			Thread.sleep(1000);
-		}
-		for(int j=170;j>10;j-=10){
-			servo.setAngle(j);
-			Thread.sleep(1000);
-		}
+		for(int i=10;i<100;i+=10){
+		servo.setAngle(10);
+		Thread.sleep(500);
 		servo.setAngle(90);
-		Thread.sleep(1000);
-		servo.setAngle(90);
-		Thread.sleep(1000);
+		Thread.sleep(500);
+		servo.setAngle(170);
+		Thread.sleep(500);
+		
+		}
+	
+
 
 
 	}

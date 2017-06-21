@@ -38,7 +38,7 @@ public class RgbLedPWM {
 		bluePin.setPwm(0);
 
 		
-		ledColorSet(0, 0, 0);
+		//ledColorSet(0, 0, 0);
 	}
 
 ////메소드
