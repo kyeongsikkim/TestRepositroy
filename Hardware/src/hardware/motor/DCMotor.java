@@ -52,12 +52,13 @@ public class DCMotor {
 	public static void main(String[] args) throws Exception {
 		PCA9685 pca9685 = PCA9685.getInstance();
 		
-		DCMotor motor = new DCMotor(RaspiPin.GPIO_02, RaspiPin.GPIO_03, pca9685, PCA9685.PWM_O4);
 		
+		DCMotor motor = new DCMotor(RaspiPin.GPIO_02, RaspiPin.GPIO_03, pca9685, PCA9685.PWM_O4);
+		DCMotor motor1= new DCMotor(RaspiPin.GPIO_00, RaspiPin.GPIO_01, pca9685, PCA9685.PWM_O5);
 		motor.setSpeed(2000);
+		motor1.setSpeed(2000);
 		motor.forward();
-		Thread.sleep(2000);
-		motor.backward();
+		motor1.forward();
 		Thread.sleep(2000);
 	}
 }

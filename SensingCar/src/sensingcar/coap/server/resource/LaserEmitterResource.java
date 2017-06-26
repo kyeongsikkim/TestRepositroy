@@ -13,7 +13,7 @@ public class LaserEmitterResource extends CoapResource {
 	private String currStatus;
 	//Constructor
 	public LaserEmitterResource() throws Exception {
-		super("laserEmitter");
+		super("laseremitter");
 		laserEmitter=new LaserEmitter(RaspiPin.GPIO_25);
 		off();
 		

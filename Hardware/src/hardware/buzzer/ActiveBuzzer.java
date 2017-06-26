@@ -12,6 +12,7 @@ public class ActiveBuzzer {
 	private GpioPinDigitalOutput buzzerPin;
 	private String status="off";
 	
+	
 	//constructor
 	public ActiveBuzzer(Pin buzzerPinNo){//핀을 외부에서 받아서 사용한다.
 		GpioController gpioController =GpioFactory.getInstance();
